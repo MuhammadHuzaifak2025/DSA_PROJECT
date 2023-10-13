@@ -68,7 +68,6 @@ Thumbs.db
 # Qt Creator generated files
 *.pro.user
 *.pro.user.*
-*.pro.*
 CMakeLists.txt.user*
 
 # XEmacs temporary files
