@@ -2,6 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include<QFile>
+#include<QDir>
+#include<QTextStream>
+#include<QString>
+#include<newuser.h>
+#include<spotify.h>
+#include "user.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,8 +21,19 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    bool loginUser();
+
+private slots:
+    void on_pushButton_Login_clicked();
+
+    void on_pushButton_newUser_clicked();
 
 private:
     Ui::MainWindow *ui;
+    newUser *newWindow;
+    spotify *spopify;
 };
+
+
+
 #endif // MAINWINDOW_H

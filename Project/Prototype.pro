@@ -10,13 +10,20 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    newuser.cpp \
+    spotify.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    newuser.h \
+    spotify.h \
+    user.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    newuser.ui \
+    spotify.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
