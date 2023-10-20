@@ -76,6 +76,7 @@ public:
             if(Line.section("|",0,0) == userName && Line.section("|",1,1) == userPass)
             {
                 File.close();
+                User->userName =  userName;
                 return true;
             }
         }

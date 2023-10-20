@@ -21,6 +21,7 @@ class Ui_spotify
 public:
     QLabel *label;
     QLabel *label_2;
+    QLabel *label_3;
 
     void setupUi(QDialog *spotify)
     {
@@ -42,6 +43,17 @@ public:
 "font-weight: 700;\n"
 "line-height: normal;"));
         label_2->setAlignment(Qt::AlignCenter);
+        label_3 = new QLabel(spotify);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(20, 210, 701, 131));
+        label_3->setStyleSheet(QString::fromUtf8("color: #FFF;\n"
+"\n"
+"font-family: Inter;\n"
+"font-size: 63px;\n"
+"font-style: normal;\n"
+"font-weight: 700;\n"
+"line-height: normal;"));
+        label_3->setAlignment(Qt::AlignCenter);
 
         retranslateUi(spotify);
 
@@ -53,6 +65,7 @@ public:
         spotify->setWindowTitle(QCoreApplication::translate("spotify", "Dialog", nullptr));
         label->setText(QCoreApplication::translate("spotify", "TextLabel", nullptr));
         label_2->setText(QCoreApplication::translate("spotify", "Spotify", nullptr));
+        label_3->setText(QString());
     } // retranslateUi
 
 };
