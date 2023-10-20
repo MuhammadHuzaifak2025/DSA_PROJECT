@@ -1,7 +1,3 @@
 #include "user.h"
 
-user::user()
-{
-
-}
-
+user* user::User = nullptr;

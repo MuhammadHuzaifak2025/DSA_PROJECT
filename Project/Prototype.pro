@@ -12,7 +12,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     newuser.cpp \
-    spotify.cpp
+    spotify.cpp \
+    user.cpp
 
 HEADERS += \
     mainwindow.h \

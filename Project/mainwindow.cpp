@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <user.h>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -9,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->lineEdit_userPass->setEchoMode(QLineEdit::Password);
+
 }
 
 MainWindow::~MainWindow()
@@ -19,7 +21,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_Login_clicked()
 {
-    if(loginUser())
+    user* u = user::get_instance();
+    if(u->login_user(ui -> lineEdit_userName -> text(),ui -> lineEdit_userPass -> text()))
     {
         spopify = new spotify;
         this->hide();
