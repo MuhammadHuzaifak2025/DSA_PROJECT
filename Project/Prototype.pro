@@ -1,4 +1,4 @@
-QT       += core gui
+QT += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -35,4 +35,5 @@ RESOURCES += \
     images.qrc
 
 DISTFILES += \
+    C:/Users/devda/Downloads/testsong.mp3 \
     images/LoginPage.png
