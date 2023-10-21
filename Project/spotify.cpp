@@ -12,12 +12,16 @@ spotify::spotify(QWidget *parent) :
 {
     ui->setupUi(this);
     user* u = user::get_instance();
+
     Player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
     Player->setAudioOutput(audioOutput);
+
     ui->volumeSlider->setMaximum(100);
     ui->volumeSlider->setMinimum(0);
     ui->volumeSlider->setValue(10);
+
+
     audioOutput->setVolume(ui->volumeSlider->value());
     ui->label_3->setText(u->get_userName());
 
@@ -25,6 +29,8 @@ spotify::spotify(QWidget *parent) :
     ui->skip_foward_button->setIcon(style()->standardIcon((QStyle::SP_MediaSkipForward)));
     ui->skip_behind_button->setIcon(style()->standardIcon(QStyle::SP_MediaSkipBackward));
     ui->mute_button->setIcon(style()->standardIcon(QStyle::SP_MediaVolume));
+    ui->skip_ten_seconds_back->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
+    ui->skip_ten_seconds_foward->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
 
     connect(Player, &QMediaPlayer::durationChanged, this, &spotify::durationChanged);
     connect(Player, &QMediaPlayer::positionChanged, this, &spotify::positionChanged);
@@ -42,9 +48,9 @@ void spotify::updateDuration(qint64 duration)
     if(duration || PlayerDuration){
         QTime CurrentTime((duration / 3600) % 60, (duration / 60) % 60, (duration * 1000) % 1000);
         QTime totalTime((PlayerDuration/ 3600) % 60, (PlayerDuration / 60) & 60, (PlayerDuration * 1000) % 1000);
-        QString format = "mm:ss";
+//        QString format = "mm:ss";
 
-        ui->songDuration->setText(CurrentTime.toString(format));
+//        ui->songDuration->setText(totalTime.toString(format));
     }
 }
 
@@ -108,5 +114,25 @@ void spotify::on_volumeSlider_valueChanged(int value)
 {
     ui->volumeSlider->setValue(value);
     audioOutput->setVolume(ui->volumeSlider->value());
+}
+
+
+void spotify::on_musicTimer_valueChanged(int value)
+{
+    Player->setPosition(value * 1000);
+}
+
+
+void spotify::on_skip_ten_seconds_back_clicked()
+{
+    ui->musicTimer->setValue(ui->musicTimer->value() - 10);
+    Player->setPosition(ui->musicTimer->value() * 1000);
+}
+
+
+void spotify::on_skip_ten_seconds_foward_clicked()
+{
+    ui->musicTimer->setValue(ui->musicTimer->value() + 10);
+    Player->setPosition(ui->musicTimer->value() * 1000);
 }
 

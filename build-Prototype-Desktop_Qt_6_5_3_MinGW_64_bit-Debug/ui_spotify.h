@@ -34,6 +34,8 @@ public:
     QPushButton *pushButton;
     QLabel *SongName;
     QLabel *songDuration;
+    QPushButton *skip_ten_seconds_foward;
+    QPushButton *skip_ten_seconds_back;
 
     void setupUi(QDialog *spotify)
     {
@@ -161,6 +163,18 @@ public:
         songDuration->setGeometry(QRect(295, 693, 49, 16));
         songDuration->setStyleSheet(QString::fromUtf8("color:grey;"));
         songDuration->setAlignment(Qt::AlignCenter);
+        skip_ten_seconds_foward = new QPushButton(spotify);
+        skip_ten_seconds_foward->setObjectName("skip_ten_seconds_foward");
+        skip_ten_seconds_foward->setGeometry(QRect(710, 650, 30, 30));
+        skip_ten_seconds_foward->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"border: 1px;\n"
+"border-radius: 15px;"));
+        skip_ten_seconds_back = new QPushButton(spotify);
+        skip_ten_seconds_back->setObjectName("skip_ten_seconds_back");
+        skip_ten_seconds_back->setGeometry(QRect(510, 650, 30, 30));
+        skip_ten_seconds_back->setStyleSheet(QString::fromUtf8("background-color: white;\n"
+"border: 1px;\n"
+"border-radius: 15px;"));
 
         retranslateUi(spotify);
 
@@ -181,6 +195,8 @@ public:
         pushButton->setText(QCoreApplication::translate("spotify", "Open File (.mp3)", nullptr));
         SongName->setText(QString());
         songDuration->setText(QString());
+        skip_ten_seconds_foward->setText(QString());
+        skip_ten_seconds_back->setText(QString());
     } // retranslateUi
 
 };

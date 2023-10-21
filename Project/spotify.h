@@ -32,6 +32,12 @@ private slots:
 
     void on_volumeSlider_valueChanged(int value);
 
+    void on_musicTimer_valueChanged(int value);
+
+    void on_skip_ten_seconds_back_clicked();
+
+    void on_skip_ten_seconds_foward_clicked();
+
 private:
     Ui::spotify *ui;
 
