@@ -6,6 +6,8 @@
 #include <QMediaPlayer>
 #include <QFileInfo>
 
+
+
 spotify::spotify(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::spotify)
@@ -16,7 +18,7 @@ spotify::spotify(QWidget *parent) :
     Player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
     Player->setAudioOutput(audioOutput);
-
+//    audioOutput->setBufferSize(32768);
     ui->volumeSlider->setMaximum(100);
     ui->volumeSlider->setMinimum(0);
     ui->volumeSlider->setValue(10);

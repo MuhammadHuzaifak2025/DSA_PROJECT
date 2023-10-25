@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <user.h>
-
+#include <admin.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -72,5 +72,15 @@ void MainWindow::on_pushButton_newUser_clicked()
 //    hide();
     newWindow = new newUser(this);
     newWindow->show();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    Admin *A;
+    A = new Admin;
+    A->show();
+    this->close();
+
 }
 
