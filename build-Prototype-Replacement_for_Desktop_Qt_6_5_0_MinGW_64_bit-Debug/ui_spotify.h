@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSlider>
 
@@ -31,11 +32,11 @@ public:
     QSlider *musicTimer;
     QSlider *volumeSlider;
     QPushButton *mute_button;
-    QPushButton *pushButton;
     QLabel *SongName;
     QLabel *songDuration;
     QPushButton *skip_ten_seconds_foward;
     QPushButton *skip_ten_seconds_back;
+    QListWidget *listWidget;
 
     void setupUi(QDialog *spotify)
     {
@@ -44,7 +45,7 @@ public:
         spotify->resize(1269, 700);
         label = new QLabel(spotify);
         label->setObjectName("label");
-        label->setGeometry(QRect(-20, 0, 1310, 720));
+        label->setGeometry(QRect(-80, -90, 1310, 720));
         label->setStyleSheet(QString::fromUtf8("image: url(:/images/background2.jpg);"));
         label_2 = new QLabel(spotify);
         label_2->setObjectName("label_2");
@@ -149,9 +150,6 @@ public:
         mute_button->setStyleSheet(QString::fromUtf8("background-color: white;\n"
 "border: 1px;\n"
 "border-radius:10px;"));
-        pushButton = new QPushButton(spotify);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(1100, 20, 141, 41));
         SongName = new QLabel(spotify);
         SongName->setObjectName("SongName");
         SongName->setGeometry(QRect(20, 640, 171, 71));
@@ -175,6 +173,9 @@ public:
         skip_ten_seconds_back->setStyleSheet(QString::fromUtf8("background-color: white;\n"
 "border: 1px;\n"
 "border-radius: 15px;"));
+        listWidget = new QListWidget(spotify);
+        listWidget->setObjectName("listWidget");
+        listWidget->setGeometry(QRect(220, 220, 256, 192));
 
         retranslateUi(spotify);
 
@@ -192,7 +193,6 @@ public:
         skip_behind_button->setText(QString());
         skip_foward_button->setText(QString());
         mute_button->setText(QString());
-        pushButton->setText(QCoreApplication::translate("spotify", "Open File (.mp3)", nullptr));
         SongName->setText(QString());
         songDuration->setText(QString());
         skip_ten_seconds_foward->setText(QString());

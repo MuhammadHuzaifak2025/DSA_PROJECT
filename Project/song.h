@@ -6,6 +6,7 @@
 #include<QTextStream>
 #include<QMessageBox>
 
+
 class Song
 {
     QString Name;
@@ -21,6 +22,7 @@ public:
     Song();
     Song(QString Name,QString Path, QString genre,QString artist);
     void play_song();
+    QList<Song*> get_songs();
 };
 
 #endif // SONG_H

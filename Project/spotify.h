@@ -28,7 +28,7 @@ private slots:
 
     void on_mute_button_clicked();
 
-    void on_pushButton_clicked();
+//    void on_pushButton_clicked();
 
     void on_volumeSlider_valueChanged(int value);
 

@@ -5,6 +5,7 @@
 #include <QtWidgets>
 #include <QMediaPlayer>
 #include <QFileInfo>
+#include <song.h>
 
 
 
@@ -16,6 +17,11 @@ spotify::spotify(QWidget *parent) :
     user* u = user::get_instance();
 
     Player = new QMediaPlayer;
+    Song s;
+    QList<Song*> songList =  s.get_songs();
+    for (Song* song : songList) {
+        ui->listWidget->addItem(song->get_song());
+    }
     audioOutput = new QAudioOutput;
     Player->setAudioOutput(audioOutput);
 //    audioOutput->setBufferSize(32768);
@@ -73,6 +79,25 @@ void spotify::positionChanged(qint64 position)
 
 void spotify::on_play_button_clicked()
 {
+    QListWidgetItem* selectedItem = ui->listWidget->currentItem();
+    if (selectedItem) {
+        QString selectedSongName = selectedItem->text();
+
+        // Assuming you have a QList<Song*> songList = s.get_songs(); defined elsewhere
+        Song s;
+        QList<Song*> songList = s.get_songs();
+        for (Song* song : songList) {
+            if (song->get_song() == selectedSongName) {
+                Player->setSource(QUrl::fromLocalFile(song->get_path()));
+                break;
+            }
+        }
+
+        // Update the SongName label
+        ui->SongName->setText(selectedSongName);
+    } else {
+
+    }
 
     if(isPlaying == false){
         Player->play();
@@ -103,13 +128,8 @@ void spotify::on_mute_button_clicked()
 }
 
 
-void spotify::on_pushButton_clicked()
-{
-    QString FileName = QFileDialog::getOpenFileName(this,tr("Select Audio File"),"",tr("MP3 Files (*.mp3)"));
-    Player->setSource(QUrl::fromLocalFile(FileName));
-    QFileInfo fileInfo(FileName);
-    ui->SongName->setText(fileInfo.fileName());
-}
+
+
 
 
 void spotify::on_volumeSlider_valueChanged(int value)
@@ -137,4 +157,3 @@ void spotify::on_skip_ten_seconds_foward_clicked()
     ui->musicTimer->setValue(ui->musicTimer->value() + 10);
     Player->setPosition(ui->musicTimer->value() * 1000);
 }
-

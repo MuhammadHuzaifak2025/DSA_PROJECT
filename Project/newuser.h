@@ -23,6 +23,8 @@ public:
 private slots:
     void on_pushButton_Login_clicked();
 
+
+
 private:
     Ui::newUser *ui;
 };

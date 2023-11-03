@@ -105,4 +105,3 @@ void newUser::on_pushButton_Login_clicked()
         this->close();
     }
 }
-

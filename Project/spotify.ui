@@ -16,8 +16,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>-20</x>
-     <y>0</y>
+     <x>-80</x>
+     <y>-90</y>
      <width>1310</width>
      <height>720</height>
     </rect>
@@ -251,19 +251,6 @@ border-radius:10px;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>1100</x>
-     <y>20</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Open File (.mp3)</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="SongName">
    <property name="geometry">
     <rect>
@@ -335,6 +322,16 @@ border-radius: 15px;</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>220</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
    </property>
   </widget>
  </widget>

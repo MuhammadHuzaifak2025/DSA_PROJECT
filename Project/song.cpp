@@ -32,7 +32,7 @@ void Song::register_song(QString Name, QString Path, QString genre, QString arti
     if (!File.exists()) {
         File.open(QIODevice::WriteOnly);
         if (File.exists()) {
-            QMessageBox::warning(NULL, "Login", "File Created");
+//            QMessageBox::warning(NULL, "Login", "File Created");
         }
     }
 
@@ -57,4 +57,38 @@ void Song::register_song(QString Name, QString Path, QString genre, QString arti
     QMessageBox::warning(NULL, "Login", "Song Registered");
 
 
+}
+QList<Song*> Song::get_songs() {
+    QFile file("Songs.txt");
+    if (!file.exists()) {
+        return QList<Song*>(); // Return an empty list if the file doesn't exist.
+    }
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QMessageBox::warning(nullptr, "Failed", "Cannot open the text file!");
+        return QList<Song*>();
+    }
+
+    QList<Song*> songList; // Create a list to store the Song objects.
+
+    QTextStream stream(&file);
+    while (!stream.atEnd()) {
+        QString line = stream.readLine();
+        QStringList parts = line.split(" | ");
+
+        if (parts.size() >= 4) {
+            QString songName = parts.at(0).trimmed();
+            QString songPath = parts.at(1).trimmed();
+            QString songGenre = parts.at(2).trimmed();
+            QString songArtist = parts.at(3).trimmed();
+
+            // Create a new Song object and add it to the list.
+            Song *song = new Song(songName, songPath, songGenre, songArtist);
+            songList.append(song);
+        }
+    }
+
+    file.close();
+
+    return songList;
 }
