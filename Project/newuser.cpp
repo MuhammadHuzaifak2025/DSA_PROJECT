@@ -84,7 +84,11 @@ void newUser::on_pushButton_Login_clicked()
 
         File.close();
 
-        QFile NUser(a.get_userName()+".txt");
+        QDir dir;
+        dir.mkpath(a.get_userName()+"/"+"Playlist");
+
+        QFile NUser(a.get_userName()+ "/" + a.get_userName()+ ".txt");
+
         if(!NUser.open((QIODevice::ReadWrite) | (QIODevice :: Append)))
         {
             QMessageBox :: warning(this,"New User", "Cannot open txt File!");
