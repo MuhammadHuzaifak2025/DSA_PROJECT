@@ -3,5 +3,11 @@
         <file>images/LoginPage.png</file>
         <file>images/background.png</file>
         <file>images/background2.jpg</file>
+        <file>icons/home.png</file>
+        <file>icons/search.png</file>
+        <file>icons/homeW.png</file>
+        <file>icons/searchW.png</file>
+        <file>Images/songs.JPG</file>
+        <file>icons/song.png</file>
     </qresource>
 </RCC>

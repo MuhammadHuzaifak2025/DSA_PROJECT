@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     Data_structures.cpp \
     admin.cpp \
+    admin2.cpp \
     main.cpp \
     mainwindow.cpp \
     newuser.cpp \
@@ -20,8 +21,10 @@ SOURCES += \
     user.cpp
 
 HEADERS += \
+    ButtonCard.h \
     Data_structures.h \
     admin.h \
+    admin2.h \
     mainwindow.h \
     newuser.h \
     song.h \
@@ -30,6 +33,7 @@ HEADERS += \
 
 FORMS += \
     admin.ui \
+    admin2.ui \
     mainwindow.ui \
     newuser.ui \
     spotify.ui

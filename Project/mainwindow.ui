@@ -150,8 +150,8 @@ line-height: normal;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>630</x>
-      <y>130</y>
+      <x>600</x>
+      <y>70</y>
       <width>131</width>
       <height>21</height>
      </rect>
