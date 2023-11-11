@@ -85,9 +85,8 @@ void newUser::on_pushButton_Login_clicked()
         File.close();
 
         QDir dir;
-        dir.mkpath(a.get_userName()+"/"+"Playlist");
-
-        QFile NUser(a.get_userName()+ "/" + a.get_userName()+ ".txt");
+        dir.mkpath("Users/"+a.get_userName()+"/playlist");
+        QFile NUser("Users/" + a.get_userName()+"/"+ "User_detail.txt");
 
         if(!NUser.open((QIODevice::ReadWrite) | (QIODevice :: Append)))
         {
