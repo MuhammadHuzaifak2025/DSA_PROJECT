@@ -9,6 +9,7 @@
 #include<newuser.h>
 #include<spotify.h>
 #include "user.h"
+#include "admin2.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

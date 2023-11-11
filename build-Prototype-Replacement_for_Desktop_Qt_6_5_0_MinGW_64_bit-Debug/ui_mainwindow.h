@@ -99,7 +99,7 @@ public:
         pushButton_newUser->setGeometry(QRect(544, 440, 251, 31));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(630, 130, 131, 21));
+        pushButton->setGeometry(QRect(600, 70, 131, 21));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);

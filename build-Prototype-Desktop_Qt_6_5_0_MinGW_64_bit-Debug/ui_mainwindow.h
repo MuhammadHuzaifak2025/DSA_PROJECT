@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 6.5.0
+** Created by: Qt User Interface Compiler version 6.5.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -29,6 +29,7 @@ public:
     QLineEdit *lineEdit_userPass;
     QPushButton *pushButton_Login;
     QPushButton *pushButton_newUser;
+    QPushButton *pushButton;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -96,6 +97,9 @@ public:
         pushButton_newUser = new QPushButton(centralwidget);
         pushButton_newUser->setObjectName("pushButton_newUser");
         pushButton_newUser->setGeometry(QRect(544, 440, 251, 31));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(600, 70, 131, 21));
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -112,6 +116,7 @@ public:
         lineEdit_userPass->setPlaceholderText(QCoreApplication::translate("MainWindow", "Enter Password", nullptr));
         pushButton_Login->setText(QCoreApplication::translate("MainWindow", "SUBMIT", nullptr));
         pushButton_newUser->setText(QCoreApplication::translate("MainWindow", "Create A New Account!", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Login As Admin", nullptr));
     } // retranslateUi
 
 };

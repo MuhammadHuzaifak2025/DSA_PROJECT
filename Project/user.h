@@ -6,6 +6,7 @@
 #include<QString>
 #include <QMessageBox>
 #include "QFile"
+#include "Data_structures.h"
 
 class user
 {
@@ -15,6 +16,7 @@ class user
     QString Email;
     QString age;
     static user *User;
+
 
     user()
     {

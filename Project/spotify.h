@@ -38,6 +38,16 @@ private slots:
 
     void on_skip_ten_seconds_foward_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_scrollArea_customContextMenuRequested(const QPoint &pos);
+
+    void on_Pages_currentChanged(int arg1);
+
+    void on_Home_Button_clicked();
+
+    void on_Search_Button_clicked();
+
 private:
     Ui::spotify *ui;
 
