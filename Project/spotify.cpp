@@ -16,6 +16,7 @@ spotify::spotify(QWidget *parent) :
 {
     ui->setupUi(this);
     user* u = user::get_instance();
+    u->S1->Load_from_File(u->get_userName());
 
     QIcon home(":/icons/homeW.png");
     QIcon search(":/icons/searchW.png");
@@ -252,9 +253,6 @@ ButtonCard::ButtonCard(const QString &text, QWidget *parent) :
     imageLabel->setStyleSheet("border-radius: 10px");
     textLabel->setStyleSheet("font: 16pt bold; color: white; background-color:rgba(50,50,50,0)");
     this->setStyleSheet("background-color: rgba(50,50,50, 0.7)");
-
-
-
 
     this->setBackgroundColor(backgroundColor);
 

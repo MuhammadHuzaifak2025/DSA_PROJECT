@@ -15,6 +15,7 @@ class user
     QString userName;
     QString Email;
     QString age;
+
     static user *User;
 
 
@@ -27,6 +28,7 @@ class user
 
 public:
 
+    linked_list* S1;
     user(QString name,QString email,QString age) : userName(name),Email(email),age(age) { }
 
 //    int getId() const

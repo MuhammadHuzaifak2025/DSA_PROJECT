@@ -30,14 +30,17 @@ void Song::register_song(QString Name, QString Path, QString genre, QString arti
 
     QFile File("Songs.txt");
     if (!File.exists()) {
-        File.open(QIODevice::WriteOnly);
-        if (File.exists()) {
-//            QMessageBox::warning(NULL, "Login", "File Created");
+        // Create the file if it doesn't exist
+        if (File.open(QIODevice::ReadWrite)) {
+            File.close();  // Close the file after creating
+        } else {
+            QMessageBox::warning(nullptr, "ERROR", "Cannot create Songs.txt!");
+            return;
         }
     }
 
     if (!File.open(QIODevice::ReadWrite | QIODevice::Text)) {
-        QMessageBox::warning(NULL, "Login", "Cannot open txt File!");
+        QMessageBox::warning(nullptr, "ERROR", "Cannot open Songs.txt for appending!");
         return;
     }
 
