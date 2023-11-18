@@ -563,6 +563,19 @@ background-color: transparent;</string>
     <string>PushButton</string>
    </property>
   </widget>
+  <widget class="QListWidget" name="Playlist">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>370</y>
+     <width>231</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
   <zorder>label_4</zorder>
   <zorder>play_button</zorder>
   <zorder>skip_behind_button</zorder>
@@ -582,6 +595,7 @@ background-color: transparent;</string>
   <zorder>listWidget</zorder>
   <zorder>Pages</zorder>
   <zorder>pushButton</zorder>
+  <zorder>Playlist</zorder>
  </widget>
  <resources/>
  <connections/>

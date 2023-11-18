@@ -1,6 +1,7 @@
 #ifndef DATA_STRUCTURES_H
 #define DATA_STRUCTURES_H
 #include <song.h>
+#include<QWidget>
 
 //  DATA_STRUCTURES_H
 
@@ -15,7 +16,7 @@ public:
 
 };
 //Circular Linked List
-class linked_list: protected QWidget{
+class linked_list: public QWidget{
 public:
     Node* head;
     Node* tail;
@@ -27,7 +28,7 @@ public:
     Song* play_from_head(); // Left
     Song* get_next_song();  // Left
     void update_to_file(QString File_name);
-    void Load_from_File(QString User_Name);// Get the Filename and clear that file and then rewrite the playlist song name onthat file
+    linked_list Load_from_File(QString User_Name);// Get the Filename and clear that file and then rewrite the playlist song name onthat file
     void print_linked_list();
 
 

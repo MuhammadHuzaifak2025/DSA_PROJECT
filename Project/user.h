@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include "QFile"
 #include "Data_structures.h"
+#include<QVector>
 
 class user
 {
@@ -15,6 +16,7 @@ class user
     QString userName;
     QString Email;
     QString age;
+    QVector<linked_list*> Playlist; //Playlist
 
     static user *User;
 
@@ -41,6 +43,7 @@ public:
         }
         return User;
     }
+    void add_all_playlist();
     QString get_userName() const
     {
         return userName;
@@ -61,33 +64,10 @@ public:
     {
         Email = a;
     }
-    bool login_user(QString userName, QString userPass){
-        QFile File("userPass.txt");
-        if(!File.exists())
-        {
-            return false;
-        }
-        if(!File.open(QIODevice :: ReadOnly))
-        {
-            QMessageBox::warning(NULL,"Login", "Cannot open txt File!");
-            return false;
-        }
-
-        QTextStream stream(&File);
-        while(!stream.atEnd())
-        {
-            QString Line = stream.readLine();
-            if(Line.section("|",0,0) == userName && Line.section("|",1,1) == userPass)
-            {
-                File.close();
-                User->userName =  userName;
-                return true;
-            }
-        }
-
-        File.close();
-        return false;
-    }
+    bool login_user(QString userName, QString userPass);
+    QList<Song*> get_linked_list_song(linked_list *L1);
+    QList<Song*> get_playlist_song();
+    QVector<linked_list*> getPlaylist();
 };
 
 //int user :: count = 0;

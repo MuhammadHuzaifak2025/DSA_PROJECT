@@ -3,6 +3,10 @@
 
 #include <QDialog>
 #include <QtMultimedia>
+#include<QMessageBox>
+#include <QCloseEvent>
+#include <QVector>
+
 
 namespace Ui {
 class spotify;
@@ -57,6 +61,8 @@ private:
 
     QMediaPlayer* Player;
     QAudioOutput *audioOutput;
+    void closeEvent(QCloseEvent *event);
+    void deleteAllFilesInDirectory(const QString &directoryPath);
 
 };
 

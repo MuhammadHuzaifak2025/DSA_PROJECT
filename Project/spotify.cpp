@@ -6,8 +6,10 @@
 #include <QMediaPlayer>
 #include <QFileInfo>
 #include <song.h>
-#include <QMessageBox>
 #include <ButtonCard.h>
+#include <QDir>
+#include <Data_structures.h>
+#include <QTextStream>
 
 
 spotify::spotify(QWidget *parent) :
@@ -16,7 +18,9 @@ spotify::spotify(QWidget *parent) :
 {
     ui->setupUi(this);
     user* u = user::get_instance();
-    u->S1->Load_from_File(u->get_userName());
+
+//    u->S1->Load_from_File(u->get_userName());
+//    u->add_all_playlist();
 
     QIcon home(":/icons/homeW.png");
     QIcon search(":/icons/searchW.png");
@@ -95,6 +99,14 @@ spotify::spotify(QWidget *parent) :
     for (Song* song : songList) {
         ui->listWidget->addItem(song->get_song());
     }
+    QList<Song*> songList2 =  u->get_playlist_song();
+    for (Song* song : songList2) {
+        ui->Playlist->addItem(song->get_song());
+    }
+
+
+
+
     audioOutput = new QAudioOutput;
     Player->setAudioOutput(audioOutput);
 //    audioOutput->setBufferSize(32768);
@@ -118,8 +130,8 @@ spotify::spotify(QWidget *parent) :
     ui->musicTimer->setRange(0,Player->duration() / 1000);
 }
 
-spotify::~spotify()
-{
+spotify::~spotify(){
+    QMessageBox::warning(NULL, "Click Successful", "Button Clicked");
     delete ui;
 }
 
@@ -310,10 +322,89 @@ void spotify::on_Home_Button_clicked()
 }
 
 
+void spotify::deleteAllFilesInDirectory(const QString &directoryPath) {
+    QDir directory(directoryPath);
 
+    if (!directory.exists()) {
+        qDebug() << "Directory does not exist:" << directoryPath;
+        return;
+    }
+
+    QFileInfoList fileList = directory.entryInfoList(QDir::Files);
+
+    for (const QFileInfo &fileInfo : fileList) {
+        QString filePath = fileInfo.filePath();
+
+        if (QFile::remove(filePath)) {
+            qDebug() << "File deleted:" << filePath;
+        } else {
+            qDebug() << "Failed to delete file:" << filePath;
+        }
+    }
+}
 
 void spotify::on_Search_Button_clicked()
 {
     ui->Pages->setCurrentIndex(1);
 }
+
+void spotify::closeEvent(QCloseEvent *event) {
+    user* u = user::get_instance();
+
+    // Delete all files in the playlist directory
+    QDir dir("Users/" + u->get_userName() + "/playlist/");
+    deleteAllFilesInDirectory(dir.path());
+
+    // Save the playlists to files
+    QVector<linked_list*> copyList = u->getPlaylist();
+    for (linked_list* list : copyList) {
+        QFile file(list->Name);
+        if (file.open(QIODevice::WriteOnly)) {
+            QTextStream stream(&file);
+            Node* temp = list->head;
+            do {
+                stream << temp->object->get_song() + " | " << temp->object->get_path() + " | "
+                       << temp->object->get_genre() + " | " << temp->object->get_artist() + " | " << "\n";
+
+                temp = temp->Next;
+            } while (temp != list->head);
+
+            file.close();
+        } else {
+            qDebug() << "Failed to open file for writing:" << file.fileName();
+        }
+    }
+}
+
+
+//QFile File("Songs.txt");
+//if (!File.exists()) {
+//    // Create the file if it doesn't exist
+//    if (File.open(QIODevice::ReadWrite)) {
+//        File.close();  // Close the file after creating
+//    } else {
+//        QMessageBox::warning(nullptr, "ERROR", "Cannot create Songs.txt!");
+//        return;
+//    }
+//}
+
+//if (!File.open(QIODevice::ReadWrite | QIODevice::Text)) {
+//    QMessageBox::warning(nullptr, "ERROR", "Cannot open Songs.txt for appending!");
+//    return;
+//}
+
+//QTextStream stream(&File);
+
+//while (!stream.atEnd()) {
+//    QString Line = stream.readLine();
+//    if (Line.section("|", 0, 0) == Name || Line.section("|", 1, 1) == (" "+Path + " ")) {
+//        QMessageBox::warning(NULL, "Login", "Song Already Registered");
+//        File.close();
+//        return;
+//    }
+//}
+//File.seek(File.size());
+//stream << Name + " | " << Path + " | "<< genre + " | "<< artist + " | " << "\n";
+//File.close();
+//QMessageBox::warning(NULL, "Login", "Song Registered");
 

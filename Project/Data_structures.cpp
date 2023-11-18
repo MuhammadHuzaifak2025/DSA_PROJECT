@@ -52,77 +52,73 @@ void linked_list::delete_from_list(Song *s){
         temp = temp->Next;
     }
 }
-void linked_list::Load_from_File(QString User_Name) {
-    QDir dir("Users/" + User_Name + "/playlist/");
+//void linked_list::Load_from_File(QString User_Name) {
+//    QDir dir("Users/" + User_Name + "/playlist/");
 
-    if (!dir.exists()) {
-        QMessageBox::warning(nullptr, "Error", "Directory does not exist");
-        return;
-    }
+//    if (!dir.exists()) {
+//        return;
+//    }
 
-    QStringList filters;
-    filters << "*.txt";
-    dir.setNameFilters(filters);
+//    QStringList filters;
+//    filters << "*.txt";
+//    dir.setNameFilters(filters);
 
-    QStringList files = dir.entryList(QDir::Files);
+//    QStringList files = dir.entryList(QDir::Files);
 
-    if (!files.isEmpty()) {
-        QMessageBox::warning(nullptr, "Files Found", "Found " + QString::number(files.size()) + " text file(s)");
+//    if (!files.isEmpty()) {
+//        // Create a single linked list outside the loop
+//        linked_list *allSongsList = new linked_list[files.size()];
+//        int i = 0;
 
-        // Create a single linked list outside the loop
-        linked_list *allSongsList = new linked_list[files.size()];
-        int i = 0;
+//        for (int i = 0; i < files.size(); i++) {
+////            QMessageBox::warning(nullptr, "Files Found", dir.filePath(files[i]));
+//            QFile file(dir.filePath(files[i]));
 
-        for (const QString& fileName : files) {
-            QFile file(fileName);
+//            if (!file.exists()) {
+//                continue;
+//            }
 
-            if (!file.exists()) {
-                // Skip the iteration if the file does not exist
-                continue;
-            }
-            file.open(QIODevice::ReadOnly);
-            QTextStream stream(&file);
+//            if (!file.open(QIODevice::ReadOnly)) {
+//                QMessageBox::warning(nullptr, "No Files", "Could not open file");
+//                return;
+//            }
 
-            while (!stream.atEnd()) {
-                QString line = stream.readLine();
-                QStringList parts = line.split(" | ");
+//            QTextStream stream(&file);
 
-                if (parts.size() >= 4) {
-                    QString songName = parts.at(0).trimmed();
-                    QString songPath = parts.at(1).trimmed();
-                    QString songGenre = parts.at(2).trimmed();
-                    QString songArtist = parts.at(3).trimmed();
+//            while (!stream.atEnd()) {
+//                QString line = stream.readLine();
+//                QStringList parts = line.split(" | ");
 
-                    // Create a new Song object and add it to the list.
-                    Song *song = new Song(songName, songPath, songGenre, songArtist);
-                    allSongsList[i].add_to_end_list(song);
+//                if (parts.size() >= 4) {
+//                    QString songName = parts.at(0).trimmed();
+//                    QString songPath = parts.at(1).trimmed();
+//                    QString songGenre = parts.at(2).trimmed();
+//                    QString songArtist = parts.at(3).trimmed();
 
-                }
-            }
-            i++;
-        }
+//                    Song *song = new Song(songName, songPath, songGenre, songArtist);
+//                    allSongsList[i].add_to_end_list(song);
+//                    allSongsList[i].Name = file.fileName();
+//                }
+//            }
+//        }
+//        for (int j = 0; j < files.size(); j++) {
+////            allSongsList[j].print_linked_list();
+//        }
 
-        // Print the complete linked list after processing all files
-        for(int j = 0; j<i; j++){
-            allSongsList[j].print_linked_list();
-        }
+//        delete[] allSongsList;
+//    } else {
+//        QMessageBox::warning(nullptr, "No Files", "No text files found in the directory");
+//    }
 
-        // Don't forget to release the allocated memory
-//        allSongsList.clear(); // Assuming you have a clear() function to release memory
-    } else {
-        QMessageBox::warning(nullptr, "No Files", "No text files found in the directory");
-    }
-}
+//}
 
 void linked_list::print_linked_list() {
     Node* temp = this->head;
 
     while (temp != nullptr) {
-        // Use temp->object to access the data of the current node
         QMessageBox::warning(nullptr, "No Files", temp->object->get_song());
 
         if (temp->Next == head) {
-//            QMessageBox::warning(nullptr, "Debug", "Circular linked list detected!");
             break;
         }
 
