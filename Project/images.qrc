@@ -9,5 +9,6 @@
         <file>icons/searchW.png</file>
         <file>Images/songs.JPG</file>
         <file>icons/song.png</file>
+        <file>icons/playbtn.png</file>
     </qresource>
 </RCC>
