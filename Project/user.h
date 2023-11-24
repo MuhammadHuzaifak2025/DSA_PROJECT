@@ -7,7 +7,12 @@
 #include <QMessageBox>
 #include "QFile"
 #include "Data_structures.h"
+<<<<<<< Updated upstream
 
+=======
+#include<QVector>
+#include "stack.h"
+>>>>>>> Stashed changes
 class user
 {
 //    int Id;
@@ -15,6 +20,11 @@ class user
     QString userName;
     QString Email;
     QString age;
+<<<<<<< Updated upstream
+=======
+    QVector<linked_list*> Playlist; //Playlist
+    Stack History;
+>>>>>>> Stashed changes
     static user *User;
 
 

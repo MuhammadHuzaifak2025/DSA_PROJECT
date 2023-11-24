@@ -25,3 +25,8 @@ public:
     Song* get_next_song();  // Left
     void update_file(QString File_name); // Get the Filename and clear that file and then rewrite the playlist song name onthat file
 };
+<<<<<<< Updated upstream
+=======
+
+#endif
+>>>>>>> Stashed changes

@@ -61,6 +61,7 @@ public:
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *Layout_3;
     QPushButton *pushButton;
+    QListWidget *Playlist;
 
     void setupUi(QDialog *spotify)
     {
@@ -291,6 +292,10 @@ public:
         pushButton = new QPushButton(spotify);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(30, 570, 75, 24));
+        Playlist = new QListWidget(spotify);
+        Playlist->setObjectName("Playlist");
+        Playlist->setGeometry(QRect(30, 370, 231, 192));
+        Playlist->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
         label_4->raise();
         play_button->raise();
         skip_behind_button->raise();
@@ -310,6 +315,7 @@ public:
         listWidget->raise();
         Pages->raise();
         pushButton->raise();
+        Playlist->raise();
 
         retranslateUi(spotify);
 

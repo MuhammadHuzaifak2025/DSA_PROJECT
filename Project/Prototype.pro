@@ -18,6 +18,7 @@ SOURCES += \
     newuser.cpp \
     song.cpp \
     spotify.cpp \
+    stack.cpp \
     user.cpp
 
 HEADERS += \
@@ -29,6 +30,7 @@ HEADERS += \
     newuser.h \
     song.h \
     spotify.h \
+    stack.h \
     user.h
 
 FORMS += \
