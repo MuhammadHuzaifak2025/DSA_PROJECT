@@ -1,7 +1,7 @@
 
 Project/Prototype.pro
-build-Prototype-Desktop_Qt_6_5_0_MinGW_64_bit-Debug
-build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug
-build-Prototype-Desktop_Qt_6_5_3_MSVC2019_64bit-Debug
-build-Prototype-Desktop_x86_windows_msys_pe_64bit-Debug
-build-Prototype-Replacement_for_Desktop_Qt_6_5_0_MinGW_64_bit-Debug
+build-Prototype-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/
+build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/
+build-Prototype-Desktop_Qt_6_5_3_MSVC2019_64bit-Debug/
+build-Prototype-Desktop_x86_windows_msys_pe_64bit-Debug/
+build-Prototype-Replacement_for_Desktop_Qt_6_5_0_MinGW_64_bit-Debug/

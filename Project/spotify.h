@@ -3,6 +3,10 @@
 
 #include <QDialog>
 #include <QtMultimedia>
+#include<QMessageBox>
+#include <QCloseEvent>
+#include <QVector>
+
 
 namespace Ui {
 class spotify;
@@ -24,6 +28,8 @@ private slots:
 
     void positionChanged(qint64 position);
 
+//    void on_play_button_clicked(const QString &str);
+
     void on_play_button_clicked();
 
     void on_mute_button_clicked();
@@ -40,13 +46,15 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void on_scrollArea_customContextMenuRequested(const QPoint &pos);
+//    void on_scrollArea_customContextMenuRequested(const QPoint &pos);
 
-    void on_Pages_currentChanged(int arg1);
+//    void on_Pages_currentChanged(int arg1);
 
     void on_Home_Button_clicked();
 
     void on_Search_Button_clicked();
+
+//    void on_play_button_clicked(bool checked);
 
 private:
     Ui::spotify *ui;
@@ -57,6 +65,8 @@ private:
 
     QMediaPlayer* Player;
     QAudioOutput *audioOutput;
+    void closeEvent(QCloseEvent *event);
+    void deleteAllFilesInDirectory(const QString &directoryPath);
 
 };
 

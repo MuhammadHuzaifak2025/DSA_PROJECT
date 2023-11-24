@@ -1,8 +1,10 @@
 #include "user.h"
 
 user* user::User = nullptr;
-<<<<<<< Updated upstream
-=======
+
+
+
+
 
 void user::add_all_playlist() {
     QStringList files; // Use QVector<linked_list*>
@@ -28,7 +30,9 @@ void user::add_all_playlist() {
             }
 
             if (!file.open(QIODevice::ReadOnly)) {
-//                QMessageBox::warning(nullptr, "No Files", "Could not open file");
+
+                QMessageBox::warning(nullptr, "No Files", "Could not open file");
+
                 return;
             }
 
@@ -123,4 +127,4 @@ QList<Song*> user::get_playlist_song() {
 QVector<linked_list*> user::getPlaylist() {
     return Playlist;
 }
->>>>>>> Stashed changes
+
