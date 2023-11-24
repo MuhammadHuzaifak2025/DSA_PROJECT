@@ -1,21 +1,21 @@
 #ifndef STACK_H
 #define STACK_H
 #include <song.h>
-
-class Node
+#include "QMessageBox"
+class Stack_Node
 {
 public:
-    Node* next;
+    Stack_Node* next;
     Song s1;
 
-    Node();
-    Node(Song a);
+    Stack_Node();
+    Stack_Node(Song a);
 };
 
 class Stack
 {
 public:
-    Node *head;
+    Stack_Node *head;
     Stack();
     void Push(Song a);
     void Pop();

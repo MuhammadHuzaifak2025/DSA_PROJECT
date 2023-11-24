@@ -1,11 +1,11 @@
 #include "stack.h"
 
-Node::Node()
+Stack_Node::Stack_Node()
 {
     next = NULL;
 }
 
-Node::Node(Song a)
+Stack_Node::Stack_Node(Song a)
 {
     next = NULL;
     s1 = Song(a.get_song(),a.get_path(),a.get_genre(),a.get_artist());
@@ -17,7 +17,7 @@ Stack::Stack()
 
 void Stack :: Push(Song a)
 {
-    Node *n = new Node(a);
+    Stack_Node *n = new Stack_Node(a);
     if(head == NULL)
     {
         head = n;
@@ -35,7 +35,7 @@ void Stack :: Pop()
     {
         return;
     }
-    Node *temp = head;
+    Stack_Node *temp = head;
     head = head -> next;
     delete temp;
 }
@@ -45,7 +45,8 @@ Song Stack :: Peek()
     Song song;
     if(head == NULL)
     {
-        QMessageBox :: warning(this,"Stack", "Stack Empty!");
+
+        QMessageBox::warning(NULL,"Stack", "Stack Empty!");
         return song;
     }
 

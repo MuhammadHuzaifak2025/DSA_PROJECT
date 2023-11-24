@@ -22,7 +22,7 @@ class user
     QVector<linked_list*> Playlist; //Playlist
     Stack History;
 
-    QVector<linked_list*> Playlist; //Playlist
+//    QVector<linked_list*> Playlist; //Playlist
 
 
     static user *User;
