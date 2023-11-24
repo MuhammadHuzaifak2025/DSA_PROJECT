@@ -277,7 +277,55 @@ border-radius: 15px;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: white;</string>
+    <string notr="true">QListWidget {
+background-color: rgba(40, 40, 40,0.7);
+color:white;
+selection-background-color: #a0a0a0;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+ }
+
+QListWidget::item {
+background-color: rgba(40, 40, 40,0.7);
+padding: 10px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+}
+QListWidget::item:hover {
+background-color: rgba(40, 40, 40,0.3);
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+background-color: rgba(40, 40, 40,0.7);
+width: 10px;
+margin: 0px 0px 0px 0px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+background: #a0a0a0;
+min-height: 20px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical, QScrollBar::add-line:horizontal,QScrollBar::sub-line:horizontal {
+border: none;
+background: none;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical, QScrollBar::add-page:horizontal,  QScrollBar::sub-page:horizontal{
+background: none;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -392,7 +440,7 @@ color: white;</string>
     <string notr="true">background-color: black;</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="Home">
     <widget class="QScrollArea" name="scrollArea">
@@ -547,7 +595,7 @@ color: white;</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>80</y>
+         <y>70</y>
          <width>121</width>
          <height>41</height>
         </rect>
@@ -570,7 +618,7 @@ background-color: transparent;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>130</y>
+         <y>110</y>
          <width>921</width>
          <height>211</height>
         </rect>
@@ -581,12 +629,35 @@ background-color: transparent;</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>360</y>
+         <y>380</y>
          <width>921</width>
          <height>211</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="Layout_3"/>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>340</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: white;
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Latest Releases</string>
+       </property>
       </widget>
      </widget>
     </widget>
@@ -615,7 +686,55 @@ background-color: transparent;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 255);</string>
+    <string notr="true">QListWidget {
+background-color: rgba(40, 40, 40,0.7);
+color:white;
+selection-background-color: #a0a0a0;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+ }
+
+QListWidget::item {
+background-color: rgba(40, 40, 40,0.7);
+padding: 10px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+}
+QListWidget::item:hover {
+background-color: rgba(40, 40, 40,0.3);
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+background-color: rgba(40, 40, 40,0.7);
+width: 10px;
+margin: 0px 0px 0px 0px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+background: #a0a0a0;
+min-height: 20px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical, QScrollBar::add-line:horizontal,QScrollBar::sub-line:horizontal {
+border: none;
+background: none;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical, QScrollBar::add-page:horizontal,  QScrollBar::sub-page:horizontal{
+background: none;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">

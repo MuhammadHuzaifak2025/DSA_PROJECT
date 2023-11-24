@@ -16,10 +16,10 @@ public:
             QMenu menu(this);
 
             QAction *action1 = menu.addAction("Add To Queue");
-//            connect(action1, &QAction::triggered, this, &ButtonCard::onAction1Triggered);
+            //            connect(action1, &QAction::triggered, this, &ButtonCard::onAction1Triggered);
 
             QAction *action2 = menu.addAction("Add To Playlist");
-//            connect(action2, &QAction::triggered, this, &ButtonCard::onAction2Triggered);
+            //            connect(action2, &QAction::triggered, this, &ButtonCard::onAction2Triggered);
             menu.setStyleSheet("");
             menu.setStyleSheet("QMenu {\n""    background-color: rgba(255,255,255,50);\n""    border: 1px solid black;\n"
                                "    font-family: Arial, sans-serif;\n"
@@ -48,27 +48,29 @@ public:
 
     void setPlay(const QPixmap &image){
 
-        playLabel->setPixmap(image);
-        playLabel->setFixedSize(25,25);
-        playLabel->setStyleSheet("background-color: transparent; border: none;");
-        playLabel->setScaledContents(true);
+        playButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        playButton->setFixedSize(40,40);
+        //        playButton->setMinimumSize(35,35);
+        playButton->setStyleSheet("background-color: transparent; border: none; image: url(:icons/playbtn.png);");
+        //        playButton->setScaledContents(true);
 
-    }
-
-protected:
-//    void enterEvent(QEvent *event);
-
-//    void leaveEvent(QEvent *event);
-    void mousePress(QMouseEvent *event){
-        QFrame::mousePressEvent(event);
-        emit clicked();
     }
 
 signals:
-    void clicked();
+    void Clicked(const QString &text);
+
+protected:
+    //    void enterEvent(QEvent *event);
+
+    //    void leaveEvent(QEvent *event);
+    //    void mousePress(QMouseEvent *event){
+    //        QFrame::mousePressEvent(event);
+    //        emit clicked();
+    //    }
+
 
 private slots:
-    void onButtonClicked();
+    int on_playButton_clicked();
     void setText(const QString &text);
     QString text() const;
 
@@ -81,7 +83,7 @@ private:
     QPixmap image;
     QToolBox *toolBox;
     QPixmap play;
-    QLabel *playLabel;
+    QPushButton *playButton;
     bool isHovered;
 };
 

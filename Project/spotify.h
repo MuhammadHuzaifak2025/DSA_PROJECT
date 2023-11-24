@@ -21,6 +21,7 @@ public:
     ~spotify();
 
 private slots:
+    void handleTextFromButtonCard(const QString &text);
 
     void updateDuration(qint64 duration);
 

@@ -65,11 +65,7 @@ spotify::spotify(QWidget *parent) :
         buttonCard->setFixedSize(212,210);
         buttonCard->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         ui->Layout->addWidget(buttonCard);
-
-
-        qDebug() << buttonCard->size();
-//        connect(buttonCard, &ButtonCard::clicked, this, &spotify::on_play_button_clicked);
-
+        connect(buttonCard, &ButtonCard::Clicked, this, &spotify::handleTextFromButtonCard);
         buttonCards.append(buttonCard);
         count++;
     }
@@ -77,39 +73,68 @@ spotify::spotify(QWidget *parent) :
     ui->Layout->setSpacing(25);
     ui->Layout->setAlignment(Qt::AlignLeft);
 
-    /* Hard coded Button Cards */
+    count = 0;
+    for(Song* song: songList) {
+
+        if(count == 4){
+            break;
+        }
+        ButtonCard* buttonCard = new ButtonCard(song->get_song());
+        buttonCard->setImage(image);
+        buttonCard->setFixedSize(212,210);
+        buttonCard->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        ui->Layout_2->addWidget(buttonCard);
+        connect(buttonCard, &ButtonCard::Clicked, this, &spotify::handleTextFromButtonCard);
 
 
-    ButtonCard *card5 = new ButtonCard("Song 1");
-    ButtonCard *card6 = new ButtonCard("Song 2");
-    ButtonCard *card7 = new ButtonCard("Song 4");
-    ButtonCard *card8 = new ButtonCard("Song 3");
+        buttonCards.append(buttonCard);
+        count++;
+    }
 
-    card5->setImage(image);
-    card6->setImage(image);
-    card7->setImage(image);
-    card8->setImage(image);
+    ui->Layout_2->setSpacing(25);
+
+    QList <Song*> lastFour;
+
+    count = 0;
+    if(songList.length() >= 4){
+        lastFour = songList.mid(songList.size() - 4);
+
+        for(Song* song: lastFour){
+
+            if(count == 4){
+                break;
+            }
+            ButtonCard* buttonCard = new ButtonCard(song->get_song());
+            buttonCard->setImage(image);
+            buttonCard->setFixedSize(212,210);
+            buttonCard->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+            ui->Layout_3->addWidget(buttonCard);
+            connect(buttonCard, &ButtonCard::Clicked, this, &spotify::handleTextFromButtonCard);
+            buttonCards.append(buttonCard);
+            count++;
+
+        }
+    }
+
+    if(songList.length() < 4){
+
+        for(Song* song: songList) {
+
+            if(count == 4){
+                break;
+            }
+            ButtonCard* buttonCard = new ButtonCard(song->get_song());
+            buttonCard->setImage(image);
+            buttonCard->setFixedSize(212,210);
+            buttonCard->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+            ui->Layout_3->addWidget(buttonCard);
+            connect(buttonCard, &ButtonCard::Clicked, this, &spotify::handleTextFromButtonCard);
 
 
-    ui->Layout_2->addWidget(card5);
-    ui->Layout_2->addWidget(card6);
-    ui->Layout_2->addWidget(card7);
-    ui->Layout_2->addWidget(card8);
-
-    ButtonCard *card9 = new ButtonCard("Song 1");
-    ButtonCard *card10 = new ButtonCard("Song 2");
-    ButtonCard *card11 = new ButtonCard("Song 4");
-    ButtonCard *card12 = new ButtonCard("Song 3");
-
-    card9->setImage(image);
-    card10->setImage(image);
-    card11->setImage(image);
-    card12->setImage(image);
-
-    ui->Layout_3->addWidget(card9);
-    ui->Layout_3->addWidget(card10);
-    ui->Layout_3->addWidget(card11);
-    ui->Layout_3->addWidget(card12);
+            buttonCards.append(buttonCard);
+            count++;
+        }
+    }
 
     ui->Layout_2->setSpacing(25);
     ui->Layout_3->setSpacing(25);
@@ -176,59 +201,6 @@ void spotify::positionChanged(qint64 position)
     updateDuration(position / 1000);
 }
 
-//void spotify::on_play_button_clicked(const QString &str)
-//{
-//    QListWidgetItem* selectedItem = ui->listWidget->currentItem();
-
-//    if(str.length() != 0){
-
-//        Song s;
-//        QList<Song*> songList = s.get_songs();
-
-//        for (Song* song : songList) {
-//            if (song->get_song() == str) {
-//                Player->setSource(QUrl::fromLocalFile(song->get_path()));
-//                break;
-//            }
-//        }
-
-//        // Update the SongName label
-//        ui->SongName->setText(str);
-
-//    }
-
-//    else if (selectedItem) {
-//        QString selectedSongName = selectedItem->text();
-
-//        // Assuming you have a QList<Song*> songList = s.get_songs(); defined elsewhere
-//        Song s;
-//        QList<Song*> songList = s.get_songs();
-//        for (Song* song : songList) {
-//            if (song->get_song() == selectedSongName) {
-//                Player->setSource(QUrl::fromLocalFile(song->get_path()));
-//                break;
-//            }
-//        }
-
-//        // Update the SongName label
-//        ui->SongName->setText(selectedSongName);
-//    } else {
-
-//    }
-
-//    if(isPlaying == false){
-//        Player->play();
-//        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
-//        isPlaying = true;
-
-//    }
-
-//    else{
-//        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
-//        isPlaying = false;
-//        Player->pause();
-//    }
-//}
 
 void spotify::on_play_button_clicked()
 {
@@ -326,25 +298,23 @@ ButtonCard::ButtonCard(const QString &text, QWidget *parent) :
     QPixmap playImage(":icons/playbtn");
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
-    playLabel = new QLabel();
-
+    playButton = new QPushButton();
+    connect(playButton, &QPushButton::clicked, this, &ButtonCard::on_playButton_clicked);
 
     layout->addWidget(imageLabel);
+    QHBoxLayout *hbox = new QHBoxLayout;
 
-    layout->addWidget(textLabel);
+    hbox->addWidget(textLabel);
     this->setPlay(playImage);
-    layout->addWidget(playLabel);
+    hbox->addWidget(playButton);
+
+    layout->addLayout(hbox);
 
     imageLabel->setStyleSheet("border-radius: 10px");
     textLabel->setStyleSheet("font: 16pt bold; color: white; background-color:rgba(50,50,50,0)");
     this->setStyleSheet("background-color: rgba(50,50,50, 0.7)");
 
     this->setBackgroundColor(backgroundColor);
-
-
-//    connect(this, &ButtonCard::clicked, this, &ButtonCard::onButtonClicked);
-
-
 }
 
 void ButtonCard::setText(const QString &text)
@@ -358,10 +328,6 @@ QString ButtonCard::text() const
     return text_;
 }
 
-void ButtonCard::onButtonClicked()
-{
-    QMessageBox::warning(NULL, "Click Successful", "Button Clicked");
-}
 
 void ButtonCard::setImage(const QPixmap &image)
 {
@@ -450,7 +416,41 @@ void spotify::closeEvent(QCloseEvent *event) {
     }
 }
 
+ButtonCard::on_playButton_clicked(){
+    emit Clicked(textLabel->text());
+}
 
+void spotify::handleTextFromButtonCard(const QString &text){
+
+    if (text.length() > 0) {
+
+        Song s;
+        QList<Song*> songList = s.get_songs();
+        for (Song* song : songList) {
+            if (song->get_song() == text) {
+                Player->setSource(QUrl::fromLocalFile(song->get_path()));
+                break;
+            }
+        }
+
+        // Update the SongName label
+        ui->SongName->setText(text);
+    }
+
+    if(isPlaying == false){
+        Player->play();
+        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
+        isPlaying = true;
+
+    }
+
+    else{
+        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+        isPlaying = false;
+        Player->pause();
+    }
+
+}
 
 //QFile File("Songs.txt");
 //if (!File.exists()) {
