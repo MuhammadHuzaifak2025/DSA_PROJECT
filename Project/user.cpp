@@ -2,6 +2,10 @@
 
 user* user::User = nullptr;
 
+
+
+
+
 void user::add_all_playlist() {
     QStringList files; // Use QVector<linked_list*>
     QString User_Name = this->get_userName();
@@ -26,7 +30,9 @@ void user::add_all_playlist() {
             }
 
             if (!file.open(QIODevice::ReadOnly)) {
+
                 QMessageBox::warning(nullptr, "No Files", "Could not open file");
+
                 return;
             }
 
@@ -121,3 +127,4 @@ QList<Song*> user::get_playlist_song() {
 QVector<linked_list*> user::getPlaylist() {
     return Playlist;
 }
+

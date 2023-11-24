@@ -74,7 +74,7 @@ void newUser::on_pushButton_Login_clicked()
         QFile File("userPass.txt");
         if(!File.open((QIODevice::ReadWrite) | (QIODevice :: Append)))
         {
-            QMessageBox :: warning(this,"New User", "Cannot open txt File!");
+            QMessageBox :: warning(this,"New User(1)", "Cannot open txt File!");
             return;
         }
 
@@ -90,7 +90,7 @@ void newUser::on_pushButton_Login_clicked()
 
         if(!NUser.open((QIODevice::ReadWrite) | (QIODevice :: Append)))
         {
-            QMessageBox :: warning(this,"New User", "Cannot open txt File!");
+            QMessageBox :: warning(this,"New User(2)", "Cannot open txt File!");
             return;
         }
 
