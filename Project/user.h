@@ -7,7 +7,9 @@
 #include <QMessageBox>
 #include "QFile"
 #include "Data_structures.h"
+
 #include<QVector>
+#include "stack.h"
 
 class user
 {
@@ -16,7 +18,12 @@ class user
     QString userName;
     QString Email;
     QString age;
+
     QVector<linked_list*> Playlist; //Playlist
+    Stack History;
+
+//    QVector<linked_list*> Playlist; //Playlist
+
 
     static user *User;
 
