@@ -57,16 +57,12 @@ static constexpr auto qt_meta_stringdata_CLASSspotifyENDCLASS = QtMocHelpers::st
     "on_skip_ten_seconds_back_clicked",
     "on_skip_ten_seconds_foward_clicked",
     "on_pushButton_clicked",
-    "on_scrollArea_customContextMenuRequested",
-    "pos",
-    "on_Pages_currentChanged",
-    "arg1",
     "on_Home_Button_clicked",
     "on_Search_Button_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSspotifyENDCLASS_t {
-    uint offsetsAndSizes[42];
+    uint offsetsAndSizes[34];
     char stringdata0[8];
     char stringdata1[15];
     char stringdata2[1];
@@ -82,12 +78,8 @@ struct qt_meta_stringdata_CLASSspotifyENDCLASS_t {
     char stringdata12[33];
     char stringdata13[35];
     char stringdata14[22];
-    char stringdata15[41];
-    char stringdata16[4];
-    char stringdata17[24];
-    char stringdata18[5];
-    char stringdata19[23];
-    char stringdata20[25];
+    char stringdata15[23];
+    char stringdata16[25];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSspotifyENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -108,12 +100,8 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSspotifyENDCLASS_t qt_meta_strin
         QT_MOC_LITERAL(182, 32),  // "on_skip_ten_seconds_back_clicked"
         QT_MOC_LITERAL(215, 34),  // "on_skip_ten_seconds_foward_cl..."
         QT_MOC_LITERAL(250, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(272, 40),  // "on_scrollArea_customContextMe..."
-        QT_MOC_LITERAL(313, 3),  // "pos"
-        QT_MOC_LITERAL(317, 23),  // "on_Pages_currentChanged"
-        QT_MOC_LITERAL(341, 4),  // "arg1"
-        QT_MOC_LITERAL(346, 22),  // "on_Home_Button_clicked"
-        QT_MOC_LITERAL(369, 24)   // "on_Search_Button_clicked"
+        QT_MOC_LITERAL(272, 22),  // "on_Home_Button_clicked"
+        QT_MOC_LITERAL(295, 24)   // "on_Search_Button_clicked"
     },
     "spotify",
     "updateDuration",
@@ -130,10 +118,6 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSspotifyENDCLASS_t qt_meta_strin
     "on_skip_ten_seconds_back_clicked",
     "on_skip_ten_seconds_foward_clicked",
     "on_pushButton_clicked",
-    "on_scrollArea_customContextMenuRequested",
-    "pos",
-    "on_Pages_currentChanged",
-    "arg1",
     "on_Home_Button_clicked",
     "on_Search_Button_clicked"
 };
@@ -147,7 +131,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSspotifyENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -155,20 +139,18 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSspotifyENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   98,    2, 0x08,    1 /* Private */,
-       4,    1,  101,    2, 0x08,    3 /* Private */,
-       5,    1,  104,    2, 0x08,    5 /* Private */,
-       7,    0,  107,    2, 0x08,    7 /* Private */,
-       8,    0,  108,    2, 0x08,    8 /* Private */,
-       9,    1,  109,    2, 0x08,    9 /* Private */,
-      11,    1,  112,    2, 0x08,   11 /* Private */,
-      12,    0,  115,    2, 0x08,   13 /* Private */,
-      13,    0,  116,    2, 0x08,   14 /* Private */,
-      14,    0,  117,    2, 0x08,   15 /* Private */,
-      15,    1,  118,    2, 0x08,   16 /* Private */,
-      17,    1,  121,    2, 0x08,   18 /* Private */,
-      19,    0,  124,    2, 0x08,   20 /* Private */,
-      20,    0,  125,    2, 0x08,   21 /* Private */,
+       1,    1,   86,    2, 0x08,    1 /* Private */,
+       4,    1,   89,    2, 0x08,    3 /* Private */,
+       5,    1,   92,    2, 0x08,    5 /* Private */,
+       7,    0,   95,    2, 0x08,    7 /* Private */,
+       8,    0,   96,    2, 0x08,    8 /* Private */,
+       9,    1,   97,    2, 0x08,    9 /* Private */,
+      11,    1,  100,    2, 0x08,   11 /* Private */,
+      12,    0,  103,    2, 0x08,   13 /* Private */,
+      13,    0,  104,    2, 0x08,   14 /* Private */,
+      14,    0,  105,    2, 0x08,   15 /* Private */,
+      15,    0,  106,    2, 0x08,   16 /* Private */,
+      16,    0,  107,    2, 0x08,   17 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::LongLong,    3,
@@ -181,8 +163,6 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSspotifyENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QPoint,   16,
-    QMetaType::Void, QMetaType::Int,   18,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -223,12 +203,6 @@ Q_CONSTINIT const QMetaObject spotify::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_scrollArea_customContextMenuRequested'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QPoint &, std::false_type>,
-        // method 'on_Pages_currentChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'on_Home_Button_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_Search_Button_clicked'
@@ -253,10 +227,8 @@ void spotify::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 7: _t->on_skip_ten_seconds_back_clicked(); break;
         case 8: _t->on_skip_ten_seconds_foward_clicked(); break;
         case 9: _t->on_pushButton_clicked(); break;
-        case 10: _t->on_scrollArea_customContextMenuRequested((*reinterpret_cast< std::add_pointer_t<QPoint>>(_a[1]))); break;
-        case 11: _t->on_Pages_currentChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 12: _t->on_Home_Button_clicked(); break;
-        case 13: _t->on_Search_Button_clicked(); break;
+        case 10: _t->on_Home_Button_clicked(); break;
+        case 11: _t->on_Search_Button_clicked(); break;
         default: ;
         }
     }
@@ -281,13 +253,13 @@ int spotify::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 14;
+        _id -= 12;
     }
     return _id;
 }

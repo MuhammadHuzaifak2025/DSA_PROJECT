@@ -265,10 +265,19 @@ border-radius: 15px;</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>160</y>
+     <y>190</y>
      <width>231</width>
      <height>192</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -383,7 +392,7 @@ color: white;</string>
     <string notr="true">background-color: black;</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="Home">
     <widget class="QScrollArea" name="scrollArea">
@@ -444,6 +453,39 @@ border-radius: 20px;
         </rect>
        </property>
        <layout class="QHBoxLayout" name="Layout"/>
+      </widget>
+      <widget class="QLabel" name="Your_playlist">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>320</y>
+         <width>311</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>18</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: white;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QWidget" name="horizontalLayoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>380</y>
+         <width>921</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="Playlist_Layout"/>
       </widget>
      </widget>
     </widget>
@@ -563,6 +605,87 @@ background-color: transparent;</string>
     <string>PushButton</string>
    </property>
   </widget>
+  <widget class="QListWidget" name="Playlist">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>410</y>
+     <width>231</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>135</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255,255,255,0);
+color:white;</string>
+   </property>
+   <property name="text">
+    <string>Quick Access</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>170</y>
+     <width>49</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255,255,255,0);
+color:white;</string>
+   </property>
+   <property name="text">
+    <string>Songs</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>390</y>
+     <width>49</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgba(255,255,255,0);
+color:white;</string>
+   </property>
+   <property name="text">
+    <string>Playlists</string>
+   </property>
+  </widget>
+  <zorder>pushButton</zorder>
   <zorder>label_4</zorder>
   <zorder>play_button</zorder>
   <zorder>skip_behind_button</zorder>
@@ -581,7 +704,10 @@ background-color: transparent;</string>
   <zorder>Search_Button</zorder>
   <zorder>listWidget</zorder>
   <zorder>Pages</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>Playlist</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
  </widget>
  <resources/>
  <connections/>

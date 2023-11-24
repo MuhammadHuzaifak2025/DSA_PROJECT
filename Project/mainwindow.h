@@ -10,6 +10,8 @@
 #include<spotify.h>
 #include "user.h"
 #include "admin2.h"
+#include <QCloseEvent>
+#include<QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

@@ -51,6 +51,9 @@ public:
     QLabel *greeting;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *Layout;
+    QLabel *Your_playlist;
+    QWidget *horizontalLayoutWidget_4;
+    QHBoxLayout *Playlist_Layout;
     QWidget *Search;
     QScrollArea *scrollArea_2;
     QWidget *scrollAreaWidgetContents_2;
@@ -61,6 +64,10 @@ public:
     QWidget *horizontalLayoutWidget_3;
     QHBoxLayout *Layout_3;
     QPushButton *pushButton;
+    QListWidget *Playlist;
+    QLabel *label_3;
+    QLabel *label_5;
+    QLabel *label_6;
 
     void setupUi(QDialog *spotify)
     {
@@ -174,7 +181,12 @@ public:
 "border-radius: 15px;"));
         listWidget = new QListWidget(spotify);
         listWidget->setObjectName("listWidget");
-        listWidget->setGeometry(QRect(30, 160, 231, 192));
+        listWidget->setGeometry(QRect(30, 190, 231, 192));
+        QFont font1;
+        font1.setPointSize(14);
+        font1.setBold(true);
+        listWidget->setFont(font1);
+        listWidget->setStyleSheet(QString::fromUtf8("color: white;"));
         label = new QLabel(spotify);
         label->setObjectName("label");
         label->setGeometry(QRect(10, 0, 300, 620));
@@ -191,10 +203,10 @@ public:
         Home_Button = new QPushButton(spotify);
         Home_Button->setObjectName("Home_Button");
         Home_Button->setGeometry(QRect(20, 20, 251, 41));
-        QFont font1;
-        font1.setPointSize(11);
-        font1.setBold(true);
-        Home_Button->setFont(font1);
+        QFont font2;
+        font2.setPointSize(11);
+        font2.setBold(true);
+        Home_Button->setFont(font2);
         Home_Button->setStyleSheet(QString::fromUtf8("border-radius: 20px;\n"
 "background-color: rgba(40, 40, 40,0.7);\n"
 "text-align: left;\n"
@@ -203,7 +215,7 @@ public:
         Search_Button = new QPushButton(spotify);
         Search_Button->setObjectName("Search_Button");
         Search_Button->setGeometry(QRect(20, 70, 251, 41));
-        Search_Button->setFont(font1);
+        Search_Button->setFont(font2);
         Search_Button->setStyleSheet(QString::fromUtf8("border-radius: 20px;\n"
 "background-color: rgba(40, 40, 40,0.7);\n"
 "text-align: left;\n"
@@ -228,10 +240,10 @@ public:
         greeting = new QLabel(scrollAreaWidgetContents);
         greeting->setObjectName("greeting");
         greeting->setGeometry(QRect(10, 20, 311, 41));
-        QFont font2;
-        font2.setPointSize(18);
-        font2.setBold(true);
-        greeting->setFont(font2);
+        QFont font3;
+        font3.setPointSize(18);
+        font3.setBold(true);
+        greeting->setFont(font3);
         greeting->setStyleSheet(QString::fromUtf8("color: white;"));
         horizontalLayoutWidget = new QWidget(scrollAreaWidgetContents);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
@@ -239,6 +251,17 @@ public:
         Layout = new QHBoxLayout(horizontalLayoutWidget);
         Layout->setObjectName("Layout");
         Layout->setContentsMargins(0, 0, 0, 0);
+        Your_playlist = new QLabel(scrollAreaWidgetContents);
+        Your_playlist->setObjectName("Your_playlist");
+        Your_playlist->setGeometry(QRect(20, 320, 311, 41));
+        Your_playlist->setFont(font3);
+        Your_playlist->setStyleSheet(QString::fromUtf8("color: white;"));
+        horizontalLayoutWidget_4 = new QWidget(scrollAreaWidgetContents);
+        horizontalLayoutWidget_4->setObjectName("horizontalLayoutWidget_4");
+        horizontalLayoutWidget_4->setGeometry(QRect(10, 380, 921, 211));
+        Playlist_Layout = new QHBoxLayout(horizontalLayoutWidget_4);
+        Playlist_Layout->setObjectName("Playlist_Layout");
+        Playlist_Layout->setContentsMargins(0, 0, 0, 0);
         scrollArea->setWidget(scrollAreaWidgetContents);
         Pages->addWidget(Home);
         Search = new QWidget();
@@ -256,10 +279,10 @@ public:
         lineEdit = new QLineEdit(scrollAreaWidgetContents_2);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(20, 20, 331, 41));
-        QFont font3;
-        font3.setPointSize(12);
-        font3.setBold(true);
-        lineEdit->setFont(font3);
+        QFont font4;
+        font4.setPointSize(12);
+        font4.setBold(true);
+        lineEdit->setFont(font4);
         lineEdit->setStyleSheet(QString::fromUtf8("border-image: url(\":icons/seach.png\");\n"
 "background-color: rgba(50,50,50,0.7);\n"
 "border-radius: 20px;\n"
@@ -268,10 +291,10 @@ public:
         label_2 = new QLabel(scrollAreaWidgetContents_2);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(20, 80, 121, 41));
-        QFont font4;
-        font4.setPointSize(16);
-        font4.setBold(true);
-        label_2->setFont(font4);
+        QFont font5;
+        font5.setPointSize(16);
+        font5.setBold(true);
+        label_2->setFont(font5);
         label_2->setStyleSheet(QString::fromUtf8("color: white;\n"
 "background-color: transparent;"));
         horizontalLayoutWidget_2 = new QWidget(scrollAreaWidgetContents_2);
@@ -291,6 +314,31 @@ public:
         pushButton = new QPushButton(spotify);
         pushButton->setObjectName("pushButton");
         pushButton->setGeometry(QRect(30, 570, 75, 24));
+        Playlist = new QListWidget(spotify);
+        Playlist->setObjectName("Playlist");
+        Playlist->setGeometry(QRect(30, 410, 231, 192));
+        Playlist->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
+        label_3 = new QLabel(spotify);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(30, 135, 161, 21));
+        label_3->setFont(font1);
+        label_3->setStyleSheet(QString::fromUtf8("background-color: rgba(255,255,255,0);\n"
+"color:white;"));
+        label_5 = new QLabel(spotify);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(30, 170, 49, 16));
+        QFont font6;
+        font6.setBold(true);
+        label_5->setFont(font6);
+        label_5->setStyleSheet(QString::fromUtf8("background-color: rgba(255,255,255,0);\n"
+"color:white;"));
+        label_6 = new QLabel(spotify);
+        label_6->setObjectName("label_6");
+        label_6->setGeometry(QRect(30, 390, 49, 16));
+        label_6->setFont(font6);
+        label_6->setStyleSheet(QString::fromUtf8("background-color: rgba(255,255,255,0);\n"
+"color:white;"));
+        pushButton->raise();
         label_4->raise();
         play_button->raise();
         skip_behind_button->raise();
@@ -309,11 +357,14 @@ public:
         Search_Button->raise();
         listWidget->raise();
         Pages->raise();
-        pushButton->raise();
+        Playlist->raise();
+        label_3->raise();
+        label_5->raise();
+        label_6->raise();
 
         retranslateUi(spotify);
 
-        Pages->setCurrentIndex(1);
+        Pages->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(spotify);
@@ -337,9 +388,13 @@ public:
         Home_Button->setText(QString());
         Search_Button->setText(QString());
         greeting->setText(QString());
+        Your_playlist->setText(QString());
         lineEdit->setPlaceholderText(QCoreApplication::translate("spotify", "Search a song name", nullptr));
         label_2->setText(QCoreApplication::translate("spotify", "Browse All", nullptr));
         pushButton->setText(QCoreApplication::translate("spotify", "PushButton", nullptr));
+        label_3->setText(QCoreApplication::translate("spotify", "Quick Access", nullptr));
+        label_5->setText(QCoreApplication::translate("spotify", "Songs", nullptr));
+        label_6->setText(QCoreApplication::translate("spotify", "Playlists", nullptr));
     } // retranslateUi
 
 };

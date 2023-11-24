@@ -148,6 +148,7 @@ release/qrc_images.cpp: ../Project/images.qrc \
 		../Project/images/background2.jpg \
 		../Project/images/background.png \
 		../Project/images/LoginPage.png \
+		../Project/icons/playbtn.png \
 		../Project/icons/searchW.png \
 		../Project/icons/search.png \
 		../Project/icons/homeW.png \
@@ -684,7 +685,7 @@ release/moc_ButtonCard.cpp: ../Project/ButtonCard.h \
 		C:/Qt/6.5.3/mingw_64/include/QtGui/QPalette \
 		release/moc_predefs.h \
 		C:/Qt/6.5.3/mingw_64/bin/moc.exe
-	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\ButtonCard.h -o release\moc_ButtonCard.cpp
+	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\ButtonCard.h -o release\moc_ButtonCard.cpp
 
 release/moc_admin.cpp: ../Project/admin.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QDialog \
@@ -1176,13 +1177,18 @@ release/moc_admin.cpp: ../Project/admin.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qtmultimediaversion.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qvideosink.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qwavedecoder.h \
+		C:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
 		../Project/user.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
 		../Project/admin2.h \
 		release/moc_predefs.h \
 		C:/Qt/6.5.3/mingw_64/bin/moc.exe
-	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\admin.h -o release\moc_admin.cpp
+	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\admin.h -o release\moc_admin.cpp
 
 release/moc_admin2.cpp: ../Project/admin2.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QDialog \
@@ -1345,7 +1351,7 @@ release/moc_admin2.cpp: ../Project/admin2.h \
 		C:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
 		release/moc_predefs.h \
 		C:/Qt/6.5.3/mingw_64/bin/moc.exe
-	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\admin2.h -o release\moc_admin2.cpp
+	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\admin2.h -o release\moc_admin2.cpp
 
 release/moc_mainwindow.cpp: ../Project/mainwindow.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
@@ -1836,13 +1842,18 @@ release/moc_mainwindow.cpp: ../Project/mainwindow.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qtmultimediaversion.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qvideosink.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qwavedecoder.h \
+		C:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
 		../Project/user.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
 		../Project/admin2.h \
 		release/moc_predefs.h \
 		C:/Qt/6.5.3/mingw_64/bin/moc.exe
-	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\mainwindow.h -o release\moc_mainwindow.cpp
 
 release/moc_newuser.cpp: ../Project/newuser.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QDialog \
@@ -2018,7 +2029,7 @@ release/moc_newuser.cpp: ../Project/newuser.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
 		release/moc_predefs.h \
 		C:/Qt/6.5.3/mingw_64/bin/moc.exe
-	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\newuser.h -o release\moc_newuser.cpp
+	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\newuser.h -o release\moc_newuser.cpp
 
 release/moc_spotify.cpp: ../Project/spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QDialog \
@@ -2499,9 +2510,13 @@ release/moc_spotify.cpp: ../Project/spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qtmultimediaversion.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qvideosink.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qwavedecoder.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
 		release/moc_predefs.h \
 		C:/Qt/6.5.3/mingw_64/bin/moc.exe
-	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\spotify.h -o release\moc_spotify.cpp
+	C:\Qt\6.5.3\mingw_64\bin\moc.exe $(DEFINES) --include "D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/build-Prototype-Desktop_Qt_6_5_3_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.5.3/mingw_64/mkspecs/win32-g++ -I"D:/Semester 3/Project DSA/DSA_PROJECT/Dani Branch/DSA_PROJECT/Project" -IC:/Qt/6.5.3/mingw_64/include -IC:/Qt/6.5.3/mingw_64/include/QtMultimedia -IC:/Qt/6.5.3/mingw_64/include/QtWidgets -IC:/Qt/6.5.3/mingw_64/include/QtGui -IC:/Qt/6.5.3/mingw_64/include/QtNetwork -IC:/Qt/6.5.3/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\Project\spotify.h -o release\moc_spotify.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2713,7 +2728,10 @@ release/Data_structures.o: ../Project/Data_structures.cpp ../Project/Data_struct
 		C:/Qt/6.5.3/mingw_64/include/QtCore/QSize \
 		C:/Qt/6.5.3/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.5.3/mingw_64/include/QtGui/QTransform \
-		C:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qnativeinterface.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QFileDialog \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qfiledialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Data_structures.o ..\Project\Data_structures.cpp
 
 release/admin.o: ../Project/admin.cpp ../Project/admin.h \
@@ -3206,9 +3224,14 @@ release/admin.o: ../Project/admin.cpp ../Project/admin.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qtmultimediaversion.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qvideosink.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qwavedecoder.h \
+		C:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
 		../Project/user.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
 		../Project/admin2.h \
 		ui_admin.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
@@ -3340,8 +3363,7 @@ release/admin.o: ../Project/admin.cpp ../Project/admin.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qwhatsthis.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qwidgetaction.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qwizard.h \
-		C:/Qt/6.5.3/mingw_64/include/QtCore/QFileInfo \
-		../Project/song.h
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QFileInfo
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\admin.o ..\Project\admin.cpp
 
 release/admin2.o: ../Project/admin2.cpp ../Project/admin2.h \
@@ -4018,9 +4040,14 @@ release/main.o: ../Project/main.cpp ../Project/mainwindow.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qtmultimediaversion.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qvideosink.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qwavedecoder.h \
+		C:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
 		../Project/user.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
 		../Project/admin2.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\Project\main.cpp
 
@@ -4513,9 +4540,14 @@ release/mainwindow.o: ../Project/mainwindow.cpp ../Project/mainwindow.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qtmultimediaversion.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qvideosink.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qwavedecoder.h \
+		C:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
 		../Project/user.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
 		../Project/admin2.h \
 		ui_mainwindow.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
@@ -4526,7 +4558,6 @@ release/mainwindow.o: ../Project/mainwindow.cpp ../Project/mainwindow.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
 		../Project/admin.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\Project\mainwindow.cpp
 
@@ -4739,7 +4770,12 @@ release/newuser.o: ../Project/newuser.cpp ../Project/newuser.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qabstractbutton.h \
-		../Project/user.h
+		../Project/user.h \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qvector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\newuser.o ..\Project\newuser.cpp
 
 release/song.o: ../Project/song.cpp ../Project/song.h \
@@ -5394,6 +5430,10 @@ release/spotify.o: ../Project/spotify.cpp ../Project/spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qtmultimediaversion.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qvideosink.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/qwavedecoder.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/6.5.3/mingw_64/include/QtGui/QCloseEvent \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
 		ui_spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qapplication.h \
@@ -5405,6 +5445,8 @@ release/spotify.o: ../Project/spotify.cpp ../Project/spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qlabel.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QLineEdit \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qlineedit.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qlistview.h \
@@ -5429,9 +5471,11 @@ release/spotify.o: ../Project/spotify.cpp ../Project/spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qstackedwidget.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
 		../Project/user.h \
-		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
-		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
 		C:/Qt/6.5.3/mingw_64/include/QtCore/QFile \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QDir \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QTextStream \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QtWidgets \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QtWidgetsDepends \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qaccessiblewidget.h \
@@ -5486,7 +5530,6 @@ release/spotify.o: ../Project/spotify.cpp ../Project/spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qgroupbox.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qheaderview.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qinputdialog.h \
-		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qlineedit.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qitemdelegate.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qitemeditorfactory.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qkeysequenceedit.h \
@@ -5539,9 +5582,6 @@ release/spotify.o: ../Project/spotify.cpp ../Project/spotify.h \
 		C:/Qt/6.5.3/mingw_64/include/QtWidgets/qwizard.h \
 		C:/Qt/6.5.3/mingw_64/include/QtMultimedia/QMediaPlayer \
 		C:/Qt/6.5.3/mingw_64/include/QtCore/QFileInfo \
-		../Project/song.h \
-		C:/Qt/6.5.3/mingw_64/include/QtCore/QDir \
-		C:/Qt/6.5.3/mingw_64/include/QtCore/QTextStream \
 		../Project/ButtonCard.h \
 		C:/Qt/6.5.3/mingw_64/include/QtGui/QPalette
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\spotify.o ..\Project\spotify.cpp
@@ -5731,7 +5771,18 @@ release/user.o: ../Project/user.cpp ../Project/user.h \
 		C:/Qt/6.5.3/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.5.3/mingw_64/include/QtCore/QFile \
 		C:/Qt/6.5.3/mingw_64/include/QtCore/qfile.h \
-		C:/Qt/6.5.3/mingw_64/include/QtCore/qfiledevice.h
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qfiledevice.h \
+		../Project/Data_structures.h \
+		../Project/song.h \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QDir \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qdir.h \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qfileinfo.h \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qcalendar.h \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QTextStream \
+		C:/Qt/6.5.3/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/QVector \
+		C:/Qt/6.5.3/mingw_64/include/QtCore/qvector.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\user.o ..\Project\user.cpp
 
 release/qrc_images.o: release/qrc_images.cpp 
