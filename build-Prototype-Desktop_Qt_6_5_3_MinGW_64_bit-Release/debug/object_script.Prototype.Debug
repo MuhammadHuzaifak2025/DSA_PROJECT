@@ -1,0 +1,17 @@
+debug/Data_structures.o
+debug/admin.o
+debug/admin2.o
+debug/main.o
+debug/mainwindow.o
+debug/newuser.o
+debug/song.o
+debug/spotify.o
+debug/stack.o
+debug/user.o
+debug/qrc_images.o
+debug/moc_ButtonCard.o
+debug/moc_admin.o
+debug/moc_admin2.o
+debug/moc_mainwindow.o
+debug/moc_newuser.o
+debug/moc_spotify.o

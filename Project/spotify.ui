@@ -565,7 +565,7 @@ border-radius: 20px;
         <height>601</height>
        </rect>
       </property>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="search_bar">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -657,6 +657,67 @@ background-color: transparent;</string>
        </property>
        <property name="text">
         <string>Latest Releases</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="SearchList">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>921</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QListWidget {
+background-color: rgba(40, 40, 40,0.7);
+color:white;
+selection-background-color: #a0a0a0;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+ }
+
+QListWidget::item {
+background-color: rgba(40, 40, 40,0.7);
+padding: 10px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+}
+QListWidget::item:hover {
+background-color: rgba(40, 40, 40,0.3);
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 15px;
+}
+
+QScrollBar:vertical, QScrollBar:horizontal {
+background-color: rgba(40, 40, 40,0.7);
+width: 10px;
+margin: 0px 0px 0px 0px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+}
+
+QScrollBar::handle:vertical, QScrollBar::handle:horizontal {
+background: #a0a0a0;
+min-height: 20px;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical, QScrollBar::add-line:horizontal,QScrollBar::sub-line:horizontal {
+border: none;
+background: none;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical, QScrollBar::add-page:horizontal,  QScrollBar::sub-page:horizontal{
+background: none;
+border: 1px rgba(40, 40, 40,0.7); 
+border-radius: 5px 0 0 5px;
+
+}
+</string>
        </property>
       </widget>
      </widget>

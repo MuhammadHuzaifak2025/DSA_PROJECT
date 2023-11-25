@@ -47,6 +47,15 @@ spotify::spotify(QWidget *parent) :
         ui->listWidget->addItem(song->get_song());
     }
 
+    for(Song* song: songList){
+
+        suggestion.append(song->get_song());
+        songs.append(song->get_song());
+    }
+
+    ui->SearchList->addItems(songs);
+    ui->SearchList->hide();
+
     QList<Song*> songList2 =  u->get_playlist_song();
     for (Song* song : songList2) {
         ui->Playlist->addItem(song->get_song());
@@ -164,6 +173,10 @@ spotify::spotify(QWidget *parent) :
     ui->skip_ten_seconds_back->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
     ui->skip_ten_seconds_foward->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
 
+    connect(ui->search_bar, &QLineEdit::textChanged, this, &spotify::updateSongList);
+    connect(ui->search_bar, &QLineEdit::editingFinished, this, &spotify::hideList);
+    connect(ui->search_bar, &QLineEdit::selectionChanged, this, &spotify::showList);
+    connect(ui->search_bar, &QLineEdit::cursorPositionChanged, this, &spotify::showList);
     connect(Player, &QMediaPlayer::durationChanged, this, &spotify::durationChanged);
     connect(Player, &QMediaPlayer::positionChanged, this, &spotify::positionChanged);
     ui->musicTimer->setRange(0,Player->duration() / 1000);
@@ -482,4 +495,51 @@ void spotify::handleTextFromButtonCard(const QString &text){
 //stream << Name + " | " << Path + " | "<< genre + " | "<< artist + " | " << "\n";
 //File.close();
 //QMessageBox::warning(NULL, "Login", "Song Registered");
+
+void spotify::hideList(){
+    ui->SearchList->hide();
+}
+
+void spotify::showList(){
+    ui->SearchList->show();
+}
+
+void spotify::updateSongList(){
+    QString currentText = ui->search_bar->text().toLower();
+
+    ui->SearchList->clear();
+
+    QStringList matchingSongs;
+    for (const QString &song : songs) {
+        if (song.toLower().contains(currentText)) {
+            matchingSongs << song;
+        }
+    }
+
+    ui->SearchList->addItems(matchingSongs);
+}
+
+bool spotify::eventFilter(QObject *obj, QEvent *event) {
+    if (obj == ui->search_bar) {
+        if (event->type() == QEvent::FocusIn) {
+            showList();
+        } else if (event->type() == QEvent::FocusOut) {
+            hideList();
+        }
+    }
+
+    return QWidget::eventFilter(obj, event);
+}
+
+void spotify::keyPressEvent(QKeyEvent *event){
+    if (event->key() == Qt::Key_Escape) {
+        if(ui->SearchList->isHidden()){
+            event->ignore();
+            return;
+        }
+        hideList();
+    } else {
+        QWidget::keyPressEvent(event);
+    }
+}
 

@@ -20,6 +20,11 @@ public:
     explicit spotify(QWidget *parent = nullptr);
     ~spotify();
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
+    void keyPressEvent(QKeyEvent *event) override;
+
 private slots:
     void handleTextFromButtonCard(const QString &text);
 
@@ -55,7 +60,11 @@ private slots:
 
     void on_Search_Button_clicked();
 
-//    void on_play_button_clicked(bool checked);
+    void updateSongList();
+
+    void hideList();
+
+    void showList();
 
 private:
     Ui::spotify *ui;
@@ -63,6 +72,8 @@ private:
     bool isPlaying = false;
     bool isMuted = false;
     qint64 PlayerDuration;
+    QStringList suggestion;
+    QStringList songs;
 
     QMediaPlayer* Player;
     QAudioOutput *audioOutput;
