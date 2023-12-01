@@ -3,9 +3,6 @@
 user* user::User = nullptr;
 
 
-
-
-
 void user::add_all_playlist() {
     QStringList files; // Use QVector<linked_list*>
     QString User_Name = this->get_userName();
@@ -52,7 +49,8 @@ void user::add_all_playlist() {
 
                     Song* song = new Song(songName, songPath, songGenre, songArtist);
                     currentList->add_to_end_list(song);
-                    currentList->Name = file.fileName();
+
+                    currentList->Name = QFileInfo(file).baseName();
                 }
             }
 
@@ -124,7 +122,24 @@ QList<Song*> user::get_playlist_song() {
 
     return ListA;
 }
+
 QVector<linked_list*> user::getPlaylist() {
-    return Playlist;
+    return this->Playlist;
 }
 
+void user::SetPlaylist(QVector<linked_list*> A){
+    this->Playlist = A;
+}
+
+void user::add_playlist(QString Name, Song *NewSong){
+    QVector<linked_list*> Newplaylist ;
+    for(linked_list* list : Playlist){
+        if(list->Name == Name){
+            QMessageBox::warning(nullptr, "Playlist Error", "The Name of Playlist Already Exsist");
+            return;
+        }
+    }
+
+    Newplaylist = create_playlist(Name,this->Playlist,NewSong);
+    Playlist = Newplaylist;
+}

@@ -11,7 +11,7 @@
 #include<QVector>
 #include "stack.h"
 
-class user
+class user : public linked_list
 {
 //    int Id;
 //    static int count;
@@ -21,6 +21,7 @@ class user
 
     QVector<linked_list*> Playlist; //Playlist
     Stack History;
+
 
 //    QVector<linked_list*> Playlist; //Playlist
 
@@ -75,6 +76,9 @@ public:
     QList<Song*> get_linked_list_song(linked_list *L1);
     QList<Song*> get_playlist_song();
     QVector<linked_list*> getPlaylist();
+    void SetPlaylist(QVector<linked_list*> A);
+    void add_playlist(QString Name, Song *NewSong);
+
 };
 
 //int user :: count = 0;

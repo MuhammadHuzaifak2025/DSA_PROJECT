@@ -411,10 +411,12 @@ void spotify::closeEvent(QCloseEvent *event) {
     // Save the playlists to files
     QVector<linked_list*> copyList = u->getPlaylist();
     for (linked_list* list : copyList) {
-        QFile file(list->Name);
+        qDebug() <<list->Name<<"\n";
+        QFile file(("Users/" + u->get_userName() + "/playlist/")+list->Name+".txt");
         if (file.open(QIODevice::WriteOnly)) {
             QTextStream stream(&file);
             Node* temp = list->head;
+            if(list->head != NULL)
             do {
                 stream << temp->object->get_song() + " | " << temp->object->get_path() + " | "
                        << temp->object->get_genre() + " | " << temp->object->get_artist() + " | " << "\n";
@@ -429,7 +431,7 @@ void spotify::closeEvent(QCloseEvent *event) {
     }
 }
 
-ButtonCard::on_playButton_clicked(){
+void ButtonCard::on_playButton_clicked(){
     emit Clicked(textLabel->text());
 }
 
@@ -541,5 +543,31 @@ void spotify::keyPressEvent(QKeyEvent *event){
     } else {
         QWidget::keyPressEvent(event);
     }
+}
+
+
+void spotify::on_pushButton_2_clicked()
+{
+
+    user* u = user::get_instance();
+    Song *S = new Song("Bhagawat","E:/DSA Project/Songs/[SPOTIFY-DOWNLOADER.COM","acb","abc");
+    u->add_playlist("Huzaifa",S);
+}
+
+void spotify::on_pushButton_3_clicked()
+{
+    user* u = user::get_instance();
+
+    // Take as Parameter
+    Song *S = new Song("Bhagawat","E:/DSA Project/Songs/[SPOTIFY-DOWNLOADER.COM","acb","abc");
+
+    QVector<linked_list*> New_list = u->getPlaylist();
+    for(linked_list* list : New_list){
+        if(list->Name == "Dani"){
+            list->add_to_end_list(S);
+        }
+    }
+    u->SetPlaylist(New_list);
+    return;
 }
 

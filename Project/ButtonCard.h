@@ -70,7 +70,7 @@ protected:
 
 
 private slots:
-    int on_playButton_clicked();
+    void on_playButton_clicked();
     void setText(const QString &text);
     QString text() const;
 

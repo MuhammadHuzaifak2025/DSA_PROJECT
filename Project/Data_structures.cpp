@@ -125,3 +125,14 @@ void linked_list::print_linked_list() {
         temp = temp->Next;
     }
 }
+
+QVector<linked_list*>  linked_list::create_playlist(QString N,  QVector<linked_list*> Playlist, Song *S){
+    linked_list *NewLinked_list = new linked_list(N);
+
+    NewLinked_list->add_to_end_list(S);
+    Playlist.append(NewLinked_list);
+    return Playlist;
+
+}
+
+
