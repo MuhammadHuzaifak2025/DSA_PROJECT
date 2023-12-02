@@ -16,6 +16,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     newuser.cpp \
+    playlistselectiondialog.cpp \
     song.cpp \
     spotify.cpp \
     stack.cpp \
@@ -24,10 +25,12 @@ SOURCES += \
 HEADERS += \
     ButtonCard.h \
     Data_structures.h \
+    SoundWaves.h \
     admin.h \
     admin2.h \
     mainwindow.h \
     newuser.h \
+    playlistselectiondialog.h \
     song.h \
     spotify.h \
     stack.h \

@@ -192,7 +192,7 @@ border-radius:10px;</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>640</y>
+     <y>620</y>
      <width>171</width>
      <height>71</height>
     </rect>
@@ -338,7 +338,7 @@ border-radius: 5px 0 0 5px;
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="SideBar_1">
@@ -440,7 +440,7 @@ color: white;</string>
     <string notr="true">background-color: black;</string>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="Home">
     <widget class="QScrollArea" name="scrollArea">
@@ -723,31 +723,102 @@ border-radius: 5px 0 0 5px;
      </widget>
     </widget>
    </widget>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>570</y>
-     <width>75</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
-  </widget>
-  <widget class="QListWidget" name="Playlist">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>410</y>
-     <width>231</width>
-     <height>192</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QListWidget {
+   <widget class="QWidget" name="page">
+    <widget class="QScrollArea" name="scrollArea_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>941</width>
+       <height>601</height>
+      </rect>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>939</width>
+        <height>599</height>
+       </rect>
+      </property>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>40</y>
+         <width>181</width>
+         <height>161</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/Images/proj-logo2.png);
+background-color: none;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="Playlist_Name">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>90</y>
+         <width>621</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>28</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:none;
+color:white;
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>200</y>
+         <width>221</width>
+         <height>61</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>24</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:none;</string>
+       </property>
+       <property name="text">
+        <string>Now Playing</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="playlistPlaying">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>270</y>
+         <width>881</width>
+         <height>311</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QListWidget {
 background-color: rgba(40, 40, 40,0.7);
 color:white;
 selection-background-color: #a0a0a0;
@@ -796,6 +867,23 @@ border-radius: 5px 0 0 5px;
 
 }
 </string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>570</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -865,37 +953,16 @@ color:white;</string>
     <string>Playlists</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QWidget" name="verticalLayoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>620</y>
-     <width>151</width>
-     <height>31</height>
+     <x>30</x>
+     <y>410</y>
+     <width>231</width>
+     <height>191</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 170, 255);</string>
-   </property>
-   <property name="text">
-    <string>New playlist</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_3">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>660</y>
-     <width>151</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 170, 255);</string>
-   </property>
-   <property name="text">
-    <string>Add Song to playlist</string>
-   </property>
+   <layout class="QVBoxLayout" name="listLayout"/>
   </widget>
   <zorder>pushButton</zorder>
   <zorder>label_4</zorder>
@@ -916,12 +983,10 @@ color:white;</string>
   <zorder>Search_Button</zorder>
   <zorder>listWidget</zorder>
   <zorder>Pages</zorder>
-  <zorder>Playlist</zorder>
   <zorder>label_3</zorder>
   <zorder>label_5</zorder>
   <zorder>label_6</zorder>
-  <zorder>pushButton_2</zorder>
-  <zorder>pushButton_3</zorder>
+  <zorder>verticalLayoutWidget_2</zorder>
  </widget>
  <resources/>
  <connections/>

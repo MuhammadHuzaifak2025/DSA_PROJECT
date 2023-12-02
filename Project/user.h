@@ -19,7 +19,6 @@ class user : public linked_list
     QString Email;
     QString age;
 
-    QVector<linked_list*> Playlist; //Playlist
     Stack History;
 
 
@@ -38,6 +37,7 @@ class user : public linked_list
 
 public:
 
+    QVector<linked_list*> Playlist; //Playlist
     linked_list* S1;
     user(QString name,QString email,QString age) : userName(name),Email(email),age(age) { }
 
@@ -76,6 +76,8 @@ public:
     QList<Song*> get_linked_list_song(linked_list *L1);
     QList<Song*> get_playlist_song();
     QVector<linked_list*> getPlaylist();
+    QStringList getPlaylistNames();
+
     void SetPlaylist(QVector<linked_list*> A);
     void add_playlist(QString Name, Song *NewSong);
 

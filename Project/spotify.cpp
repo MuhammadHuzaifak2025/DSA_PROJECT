@@ -11,19 +11,29 @@
 #include <Data_structures.h>
 #include <QTextStream>
 #include <vector>
+#include "playlistselectiondialog.h"
+#include "SoundWaves.h"
 
 spotify::spotify(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::spotify)
 {
     ui->setupUi(this);
-    user* u = user::get_instance();
+    u = user::get_instance();
 
 //    u->S1->Load_from_File(u->get_userName());
 //    u->add_all_playlist();
 
+
     QIcon home(":/icons/homeW.png");
     QIcon search(":/icons/searchW.png");
+    listStyle ="QListWidget { background-color: rgba(40, 40, 40, 0.7); color: white; selection-background-color: #a0a0a0; border: 1px rgba(40, 40, 40, 0.7); border-radius: 15px; }"
+    "QListWidget::item { background-color: rgba(40, 40, 40, 0.7); padding: 10px; border: 1px rgba(40, 40, 40, 0.7); border-radius: 15px; }"
+    "QListWidget::item:hover { background-color: rgba(40, 40, 40, 0.3); border: 1px rgba(40, 40, 40, 0.7); border-radius: 15px; }"
+    "QScrollBar:vertical, QScrollBar:horizontal { background-color: rgba(40, 40, 40, 0.7); width: 10px; margin: 0px 0px 0px 0px; border: 1px rgba(40, 40, 40, 0.7); border-radius: 5px 0 0 5px; }"
+    "QScrollBar::handle:vertical, QScrollBar::handle:horizontal { background: #a0a0a0; min-height: 20px; border: 1px rgba(40, 40, 40, 0.7); border-radius: 5px 0 0 5px; }"
+    "QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical, QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal { border: none; background: none; border: 1px rgba(40, 40, 40, 0.7); border-radius: 5px 0 0 5px; }"
+    "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical, QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal { background: none; border: 1px rgba(40, 40, 40, 0.7); border-radius: 5px 0 0 5px; }";
 
     ui->Home_Button->setIcon(home);
     ui->Search_Button->setIcon(search);
@@ -42,7 +52,7 @@ spotify::spotify(QWidget *parent) :
 
     Song s;
 
-    QList<Song*> songList =  s.get_songs();
+    songList =  s.get_songs();
     for (Song* song : songList) {
         ui->listWidget->addItem(song->get_song());
     }
@@ -56,10 +66,25 @@ spotify::spotify(QWidget *parent) :
     ui->SearchList->addItems(songs);
     ui->SearchList->hide();
 
-    QList<Song*> songList2 =  u->get_playlist_song();
-    for (Song* song : songList2) {
-        ui->Playlist->addItem(song->get_song());
+//    songList2 =  u->get_playlist_song();
+    playlists = u->getPlaylistNames();
+
+
+    Playlist = new QListWidget;
+    connect(Playlist, &QListWidget::itemClicked, this, &spotify::onItemClicked);
+
+    Playlist->setStyleSheet(listStyle);
+    ui->listLayout->addWidget(Playlist);
+
+
+    for(QString a: playlists){
+
+        Playlist->addItem(a);
     }
+//    for (Song* song : songList2) {
+//        ui->Playlist->addItem(song->get_song());
+//        playlists.append(song->get_song());
+//    }
 
     QList <ButtonCard*> buttonCards;
 
@@ -75,6 +100,8 @@ spotify::spotify(QWidget *parent) :
         buttonCard->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         ui->Layout->addWidget(buttonCard);
         connect(buttonCard, &ButtonCard::Clicked, this, &spotify::handleTextFromButtonCard);
+        connect(buttonCard, &ButtonCard::addToPlaylistRequested, this, &spotify::handleAddToPlaylist);
+        connect(buttonCard, &ButtonCard::addToQueueRequested, this, &spotify::handleAddToQueue);
         buttonCards.append(buttonCard);
         count++;
     }
@@ -119,6 +146,8 @@ spotify::spotify(QWidget *parent) :
             buttonCard->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
             ui->Layout_3->addWidget(buttonCard);
             connect(buttonCard, &ButtonCard::Clicked, this, &spotify::handleTextFromButtonCard);
+            connect(buttonCard, &ButtonCard::addToPlaylistRequested, this, &spotify::handleAddToPlaylist);
+            connect(buttonCard, &ButtonCard::addToQueueRequested, this, &spotify::handleAddToQueue);
             buttonCards.append(buttonCard);
             count++;
 
@@ -138,7 +167,8 @@ spotify::spotify(QWidget *parent) :
             buttonCard->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
             ui->Layout_3->addWidget(buttonCard);
             connect(buttonCard, &ButtonCard::Clicked, this, &spotify::handleTextFromButtonCard);
-
+            connect(buttonCard, &ButtonCard::addToPlaylistRequested, this, &spotify::handleAddToPlaylist);
+            connect(buttonCard, &ButtonCard::addToQueueRequested, this, &spotify::handleAddToQueue);
 
             buttonCards.append(buttonCard);
             count++;
@@ -151,20 +181,14 @@ spotify::spotify(QWidget *parent) :
     /* Hard coded Button Cards */
 
     Player = new QMediaPlayer;
-
-
-
-
     audioOutput = new QAudioOutput;
     Player->setAudioOutput(audioOutput);
-//    audioOutput->setBufferSize(32768);
     ui->volumeSlider->setMaximum(100);
     ui->volumeSlider->setMinimum(0);
     ui->volumeSlider->setValue(10);
 
 
     audioOutput->setVolume(ui->volumeSlider->value());
-//    ui->label_3->setText(u->get_userName());
 
     ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
     ui->skip_foward_button->setIcon(style()->standardIcon((QStyle::SP_MediaSkipForward)));
@@ -173,12 +197,27 @@ spotify::spotify(QWidget *parent) :
     ui->skip_ten_seconds_back->setIcon(style()->standardIcon(QStyle::SP_MediaSeekBackward));
     ui->skip_ten_seconds_foward->setIcon(style()->standardIcon(QStyle::SP_MediaSeekForward));
 
+    QTimer *updateTimer;
+    updateTimer = new QTimer(this);
+    updateTimer->start(5000);
+
     connect(ui->search_bar, &QLineEdit::textChanged, this, &spotify::updateSongList);
     connect(ui->search_bar, &QLineEdit::editingFinished, this, &spotify::hideList);
     connect(ui->search_bar, &QLineEdit::selectionChanged, this, &spotify::showList);
     connect(ui->search_bar, &QLineEdit::cursorPositionChanged, this, &spotify::showList);
-    connect(Player, &QMediaPlayer::durationChanged, this, &spotify::durationChanged);
-    connect(Player, &QMediaPlayer::positionChanged, this, &spotify::positionChanged);
+    connect(ui->listWidget, &QListWidget::itemSelectionChanged, this, &spotify::on_play_button_clicked);
+    connect(Playlist, &QListWidget::itemSelectionChanged, this, &spotify::on_play_button_clicked);
+
+    ui->musicTimer->hide();
+
+//    connect(Player, &QMediaPlayer::durationChanged, this, &spotify::durationChanged);
+//    connect(ui->musicTimer, &QSlider::valueChanged, this, &spotify::on_musicTimer_valueChanged);
+//    connect(updateTimer, &QTimer::timeout, this, &spotify::updateSliderPosition);
+//    connect(Player, &QMediaPlayer::positionChanged, this, &spotify::positionChanged);
+
+
+    connect(Player, &QMediaPlayer::mediaStatusChanged, this, &spotify::on_mediaStateChanged);
+
     ui->musicTimer->setRange(0,Player->duration() / 1000);
 }
 
@@ -187,9 +226,10 @@ spotify::~spotify(){
     delete ui;
 }
 
+
+
 void spotify::updateDuration(qint64 duration)
 {
-    QString timestr;
     if(duration || PlayerDuration){
         QTime CurrentTime((duration / 3600) % 60, (duration / 60) % 60, (duration * 1000) % 1000);
         QTime totalTime((PlayerDuration/ 3600) % 60, (PlayerDuration / 60) & 60, (PlayerDuration * 1000) % 1000);
@@ -199,27 +239,80 @@ void spotify::updateDuration(qint64 duration)
     }
 }
 
+void spotify:: on_mediaStateChanged(QMediaPlayer::MediaStatus status)
+{
+    switch (status) {
+    case QMediaPlayer::LoadingMedia:
+        qDebug() << "Media is loading...";
+        break;
+
+    case QMediaPlayer::LoadedMedia:
+        qDebug() << "Media loaded successfully.";
+        break;
+
+    case QMediaPlayer::StalledMedia:
+        qDebug() << "Media playback stalled.";
+        break;
+
+    case QMediaPlayer::BufferingMedia:
+        qDebug() << "Media buffering...";
+        break;
+
+    case QMediaPlayer::BufferedMedia:
+        qDebug() << "Media buffered and ready to play.";
+        break;
+
+    case QMediaPlayer::EndOfMedia:
+        qDebug() << "End of media.";
+        if(songQueue.size() > 1){
+            songQueue.removeFirst();
+            Player->setSource(songQueue.first()->get_path());
+            Player->play();
+            ui->SongName->setText(songQueue.first()->get_song());
+        }
+        break;
+
+    case QMediaPlayer::InvalidMedia:
+        qDebug() << "Invalid media source.";
+        break;
+
+    default:
+        qDebug() << "Default Case";
+        break;
+    }
+}
+
+
+void spotify::updateSliderPosition()
+{
+    qint64 position = Player->position();
+    ui->musicTimer->setValue(position / 1000);
+}
+
 void spotify::durationChanged(qint64 duration)
 {
-    PlayerDuration = duration / 1000;
-    ui->musicTimer->setMaximum(PlayerDuration);
+    ui->musicTimer->setRange(0, duration / 1000);
 }
 
 void spotify::positionChanged(qint64 position)
 {
-    if(!ui->musicTimer->isSliderDown()){
-        ui->musicTimer->setValue(position / 1000);
-    }
 
-    updateDuration(position / 1000);
+    ui->musicTimer->setValue(position / 1000);
 }
 
 
 void spotify::on_play_button_clicked()
 {
-    QListWidgetItem* selectedItem = ui->listWidget->currentItem();
+//    QListWidgetItem* selectedItem = ui->listWidget->currentItem();
+    QListWidget* senderListWidget = qobject_cast<QListWidget*>(sender());
 
-    if (selectedItem) {
+    if(senderListWidget == Playlist){
+        return;
+    }
+
+    if (senderListWidget) {
+
+        QListWidgetItem* selectedItem = senderListWidget->currentItem();
         QString selectedSongName = selectedItem->text();
 
         // Assuming you have a QList<Song*> songList = s.get_songs(); defined elsewhere
@@ -227,13 +320,16 @@ void spotify::on_play_button_clicked()
         QList<Song*> songList = s.get_songs();
         for (Song* song : songList) {
             if (song->get_song() == selectedSongName) {
-                Player->setSource(QUrl::fromLocalFile(song->get_path()));
+
+                songQueue.append(song);
+
+                Player->setSource(songQueue.first()->get_path());
                 break;
             }
         }
 
         // Update the SongName label
-        ui->SongName->setText(selectedSongName);
+        ui->SongName->setText(songQueue.first()->get_path());
     }
 
     if(isPlaying == false){
@@ -285,15 +381,13 @@ void spotify::on_musicTimer_valueChanged(int value)
 
 void spotify::on_skip_ten_seconds_back_clicked()
 {
-    ui->musicTimer->setValue(ui->musicTimer->value() - 10);
-    Player->setPosition(ui->musicTimer->value() * 1000);
+    Player->setPosition((Player->position() - 10) * 1000);
 }
 
 
 void spotify::on_skip_ten_seconds_foward_clicked()
 {
-    ui->musicTimer->setValue(ui->musicTimer->value() + 10);
-    Player->setPosition(ui->musicTimer->value() * 1000);
+        Player->setPosition((Player->position() + 10) * 1000);
 }
 
 void spotify::on_pushButton_clicked()
@@ -546,28 +640,85 @@ void spotify::keyPressEvent(QKeyEvent *event){
 }
 
 
-void spotify::on_pushButton_2_clicked()
-{
+void spotify::handleAddToPlaylist(const QString &text){
+    PlaylistSelectionDialog dialog(playlists, this);
 
-    user* u = user::get_instance();
-    Song *S = new Song("Bhagawat","E:/DSA Project/Songs/[SPOTIFY-DOWNLOADER.COM","acb","abc");
-    u->add_playlist("Huzaifa",S);
-}
+    if (dialog.exec() == QDialog::Accepted) {
 
-void spotify::on_pushButton_3_clicked()
-{
-    user* u = user::get_instance();
+        QString selectedPlaylist = dialog.selectedPlaylist();
 
-    // Take as Parameter
-    Song *S = new Song("Bhagawat","E:/DSA Project/Songs/[SPOTIFY-DOWNLOADER.COM","acb","abc");
+        if (dialog.isNewPlaylistSelected()) {
 
-    QVector<linked_list*> New_list = u->getPlaylist();
-    for(linked_list* list : New_list){
-        if(list->Name == "Dani"){
-            list->add_to_end_list(S);
+            QString newName = dialog.getName();
+            qDebug() << "Create new playlist: " << newName;
+            playlists.append(newName);
+            for(Song *S : songList){
+
+                if(text == S->get_song())
+                    u->add_playlist(newName,S);
+            }
+
+        }
+
+        else{
+
+            for(Song *S : songList){
+                if(text == S->get_song()){
+                    QVector<linked_list*> New_list = u->getPlaylist();
+                    for(linked_list* list : New_list){
+                        if(list->Name == selectedPlaylist){
+                            list->add_to_end_list(S);
+                        }
+                    }
+                    u->SetPlaylist(New_list);
+                    return;
+                }
+
+            }
         }
     }
-    u->SetPlaylist(New_list);
-    return;
+
+    QStringList newplaylist;
+    Playlist->clear();
+    for(QString a: playlists){
+
+        newplaylist << a;
+    }
+
+    Playlist->addItems(newplaylist);
+
 }
+
+void spotify::onItemClicked(QListWidgetItem *item){
+
+    ui->Playlist_Name->setText(item->text());
+    ui->Pages->setCurrentIndex(2);
+    ui->label_9->setText("Now Playing");
+
+    QList <Song*> slist  = u->get_linked_list_song(u->Playlist.at(Playlist->currentRow()));
+
+    songQueue.clear();
+    ui->playlistPlaying->clear();
+    Player->play();
+    for(Song* song : slist){
+
+        ui->playlistPlaying->addItem(song->get_song());
+        songQueue.append(song);
+    }
+
+    Player->setSource(songQueue.first()->get_path());
+
+    qDebug() << Playlist->currentRow();
+}
+
+void spotify::handleAddToQueue(const QString &text){
+
+    for(Song *S : songList){
+
+        if(text == S->get_song())
+            songQueue.append(S);
+    }
+}
+
+
 

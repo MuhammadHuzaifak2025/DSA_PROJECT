@@ -143,3 +143,16 @@ void user::add_playlist(QString Name, Song *NewSong){
     Newplaylist = create_playlist(Name,this->Playlist,NewSong);
     Playlist = Newplaylist;
 }
+
+
+QStringList user::getPlaylistNames(){
+
+    QStringList Names;
+    QVector<linked_list*> newPlaylist = getPlaylist();
+    for(linked_list* list : newPlaylist){
+
+        Names.append(list->Name);
+    }
+
+    return Names;
+}

@@ -10,5 +10,8 @@
         <file>Images/songs.JPG</file>
         <file>icons/song.png</file>
         <file>icons/playbtn.png</file>
+        <file>Images/Project Logo.png</file>
+        <file>Images/proj-logo.png</file>
+        <file>Images/proj-logo2.png</file>
     </qresource>
 </RCC>

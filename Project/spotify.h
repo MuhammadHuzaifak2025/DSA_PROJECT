@@ -1,12 +1,16 @@
 #ifndef SPOTIFY_H
 #define SPOTIFY_H
 
+#include <QtWidgets>
 #include <QDialog>
 #include <QtMultimedia>
 #include<QMessageBox>
 #include <QCloseEvent>
 #include <QVector>
-
+#include "song.h"
+#include "user.h"
+#include <QMediaPlayer>
+#include "SoundWaves.h"
 
 namespace Ui {
 class spotify;
@@ -66,9 +70,18 @@ private slots:
 
     void showList();
 
-    void on_pushButton_2_clicked();
+    void handleAddToPlaylist(const QString &text);
 
-    void on_pushButton_3_clicked();
+    void handleAddToQueue(const QString &text);
+
+    void on_mediaStateChanged(QMediaPlayer::MediaStatus status);
+
+    void updateSliderPosition();
+
+    void onItemClicked(QListWidgetItem *item);
+
+
+
 
 private:
     Ui::spotify *ui;
@@ -76,9 +89,19 @@ private:
     bool isPlaying = false;
     bool isMuted = false;
     qint64 PlayerDuration;
+    QString listStyle;
+    QListWidget* Playlist;
     QStringList suggestion;
     QStringList songs;
+    QStringList playlists;
+    QList<Song*> songList2;
+    QList<Song*> songList;
+    Song s;
+    user* u;
+    QVector <Song*> songQueue;
 
+    QLabel* sName;
+    QLabel* nowPlaying;
     QMediaPlayer* Player;
     QAudioOutput *audioOutput;
     void closeEvent(QCloseEvent *event);

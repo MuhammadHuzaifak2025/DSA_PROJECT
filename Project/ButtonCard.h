@@ -16,10 +16,10 @@ public:
             QMenu menu(this);
 
             QAction *action1 = menu.addAction("Add To Queue");
-            //            connect(action1, &QAction::triggered, this, &ButtonCard::onAction1Triggered);
-
             QAction *action2 = menu.addAction("Add To Playlist");
-            //            connect(action2, &QAction::triggered, this, &ButtonCard::onAction2Triggered);
+
+            connect(action1, &QAction::triggered, this, &ButtonCard::addToQueue);
+            connect(action2, &QAction::triggered, this, &ButtonCard::addToPlaylist);
             menu.setStyleSheet("");
             menu.setStyleSheet("QMenu {\n""    background-color: rgba(255,255,255,50);\n""    border: 1px solid black;\n"
                                "    font-family: Arial, sans-serif;\n"
@@ -38,7 +38,7 @@ public:
                                "QMenu::item:selected {\n"
                                "    background-color: #d0d0d0;\n"
                                "}\n");
-            menu.exec(event->globalPos());
+            menu.exec(event->globalPosition().toPoint());
         }
         else {
             QFrame::mousePressEvent(event);
@@ -48,6 +48,7 @@ public:
 
     void setPlay(const QPixmap &image){
 
+        QPixmap xd = image;
         playButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         playButton->setFixedSize(40,40);
         //        playButton->setMinimumSize(35,35);
@@ -56,8 +57,18 @@ public:
 
     }
 
+    void addToPlaylist(){
+        emit addToPlaylistRequested(textLabel->text());
+    }
+
+    void addToQueue(){
+        addToQueueRequested(textLabel->text());
+    }
+
 signals:
     void Clicked(const QString &text);
+    void addToPlaylistRequested(const QString &text);
+    void addToQueueRequested(const QString &text);
 
 protected:
     //    void enterEvent(QEvent *event);
