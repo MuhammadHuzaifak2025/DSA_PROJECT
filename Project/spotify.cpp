@@ -23,8 +23,9 @@ spotify::spotify(QWidget *parent) :
 
 //    u->S1->Load_from_File(u->get_userName());
 //    u->add_all_playlist();
-
-
+    QString FP;
+    Stack S;
+    u->History = S.Load_to_file("Users/" + u->get_userName() + "/History.txt");
     QIcon home(":/icons/homeW.png");
     QIcon search(":/icons/searchW.png");
     listStyle ="QListWidget { background-color: rgba(40, 40, 40, 0.7); color: white; selection-background-color: #a0a0a0; border: 1px rgba(40, 40, 40, 0.7); border-radius: 15px; }"
@@ -266,8 +267,10 @@ void spotify:: on_mediaStateChanged(QMediaPlayer::MediaStatus status)
         qDebug() << "End of media.";
         if(songQueue.size() > 1){
             songQueue.removeFirst();
+            Song s(songQueue.first()->get_song(), songQueue.first()->get_path(), songQueue.first()->get_genre(), songQueue.first()->get_artist());
             Player->setSource(songQueue.first()->get_path());
             Player->play();
+            u->History.Push(s);
             ui->SongName->setText(songQueue.first()->get_song());
         }
         break;
@@ -321,13 +324,13 @@ void spotify::on_play_button_clicked()
         for (Song* song : songList) {
             if (song->get_song() == selectedSongName) {
 
-                songQueue.append(song);
-
+                songQueue.append(song);                
                 Player->setSource(songQueue.first()->get_path());
+                u->History.Push(*song);
+                qDebug() << "Hello\n";
                 break;
             }
         }
-
         // Update the SongName label
         ui->SongName->setText(songQueue.first()->get_path());
     }
@@ -523,6 +526,7 @@ void spotify::closeEvent(QCloseEvent *event) {
             qDebug() << "Failed to open file for writing:" << file.fileName();
         }
     }
+    u->History.File_History("Users/" + u->get_userName() + "/History.txt");
 }
 
 void ButtonCard::on_playButton_clicked(){
@@ -538,6 +542,7 @@ void spotify::handleTextFromButtonCard(const QString &text){
         for (Song* song : songList) {
             if (song->get_song() == text) {
                 Player->setSource(QUrl::fromLocalFile(song->get_path()));
+                u->History.Push(*song);
                 break;
             }
         }
@@ -554,9 +559,10 @@ void spotify::handleTextFromButtonCard(const QString &text){
     }
 
     else{
-        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPlay));
+        ui->play_button->setIcon(style()->standardIcon(QStyle::SP_MediaPause));
         isPlaying = false;
-        Player->pause();
+        Sleep(200);
+        Player->play();
     }
 
 }
@@ -699,6 +705,7 @@ void spotify::onItemClicked(QListWidgetItem *item){
 
     songQueue.clear();
     ui->playlistPlaying->clear();
+//    u->History.Push();
     Player->play();
     for(Song* song : slist){
 
@@ -719,6 +726,3 @@ void spotify::handleAddToQueue(const QString &text){
             songQueue.append(S);
     }
 }
-
-
-

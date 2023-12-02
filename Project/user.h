@@ -19,7 +19,6 @@ class user : public linked_list
     QString Email;
     QString age;
 
-    Stack History;
 
 
 //    QVector<linked_list*> Playlist; //Playlist
@@ -38,6 +37,7 @@ class user : public linked_list
 public:
 
     QVector<linked_list*> Playlist; //Playlist
+    Stack History;
     linked_list* S1;
     user(QString name,QString email,QString age) : userName(name),Email(email),age(age) { }
 
