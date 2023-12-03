@@ -81,7 +81,5 @@ void MainWindow::on_pushButton_clicked()
     Admin *A;
     A = new Admin(this);
     A->show();
-//    this->close();
-
 }
 

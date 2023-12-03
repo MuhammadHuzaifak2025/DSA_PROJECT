@@ -67,7 +67,6 @@ void Admin::on_Save_clicked()
 
 void Admin::on_Back_clicked()
 {
-    MainWindow *s1 = new MainWindow;
-    s1->show();
+
     this->close();
 }

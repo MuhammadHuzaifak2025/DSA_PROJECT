@@ -52,65 +52,6 @@ void linked_list::delete_from_list(Song *s){
         temp = temp->Next;
     }
 }
-//void linked_list::Load_from_File(QString User_Name) {
-//    QDir dir("Users/" + User_Name + "/playlist/");
-
-//    if (!dir.exists()) {
-//        return;
-//    }
-
-//    QStringList filters;
-//    filters << "*.txt";
-//    dir.setNameFilters(filters);
-
-//    QStringList files = dir.entryList(QDir::Files);
-
-//    if (!files.isEmpty()) {
-//        // Create a single linked list outside the loop
-//        linked_list *allSongsList = new linked_list[files.size()];
-//        int i = 0;
-
-//        for (int i = 0; i < files.size(); i++) {
-////            QMessageBox::warning(nullptr, "Files Found", dir.filePath(files[i]));
-//            QFile file(dir.filePath(files[i]));
-
-//            if (!file.exists()) {
-//                continue;
-//            }
-
-//            if (!file.open(QIODevice::ReadOnly)) {
-//                QMessageBox::warning(nullptr, "No Files", "Could not open file");
-//                return;
-//            }
-
-//            QTextStream stream(&file);
-
-//            while (!stream.atEnd()) {
-//                QString line = stream.readLine();
-//                QStringList parts = line.split(" | ");
-
-//                if (parts.size() >= 4) {
-//                    QString songName = parts.at(0).trimmed();
-//                    QString songPath = parts.at(1).trimmed();
-//                    QString songGenre = parts.at(2).trimmed();
-//                    QString songArtist = parts.at(3).trimmed();
-
-//                    Song *song = new Song(songName, songPath, songGenre, songArtist);
-//                    allSongsList[i].add_to_end_list(song);
-//                    allSongsList[i].Name = file.fileName();
-//                }
-//            }
-//        }
-//        for (int j = 0; j < files.size(); j++) {
-////            allSongsList[j].print_linked_list();
-//        }
-
-//        delete[] allSongsList;
-//    } else {
-//        QMessageBox::warning(nullptr, "No Files", "No text files found in the directory");
-//    }
-
-//}
 
 void linked_list::print_linked_list() {
     Node* temp = this->head;
@@ -134,5 +75,3 @@ QVector<linked_list*>  linked_list::create_playlist(QString N,  QVector<linked_l
     return Playlist;
 
 }
-
-

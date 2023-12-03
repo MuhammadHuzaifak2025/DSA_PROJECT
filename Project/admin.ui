@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>764</width>
-    <height>355</height>
+    <width>1280</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,28 +16,45 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>30</y>
-     <width>171</width>
-     <height>81</height>
+     <x>177</x>
+     <y>111</y>
+     <width>260</width>
+     <height>48</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>Moulpali</family>
+     <pointsize>31</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>false</underline>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">font: 20pt &quot;Segoe UI&quot;;
-color: black;</string>
+    <string notr="true">font: 300 31pt &quot;Moulpali&quot;;
+
+color: white;</string>
    </property>
    <property name="text">
     <string>Register Song</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="Register_Song">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>110</y>
-     <width>80</width>
-     <height>24</height>
+     <x>307</x>
+     <y>176</y>
+     <width>168</width>
+     <height>39</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(60, 60, 60);
+font: 20px &quot;Moulpali&quot;;</string>
    </property>
    <property name="text">
     <string>Register Song</string>
@@ -46,14 +63,19 @@ color: black;</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>188</x>
-     <y>160</y>
-     <width>91</width>
-     <height>20</height>
+     <x>130</x>
+     <y>170</y>
+     <width>151</width>
+     <height>55</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25px &quot;Moulpali&quot;;
+
+color: white;</string>
+   </property>
    <property name="text">
-    <string>Path Chosen</string>
+    <string>Choose Path</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -72,41 +94,64 @@ color: black;</string>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>200</y>
-     <width>113</width>
-     <height>24</height>
+     <x>313</x>
+     <y>272</y>
+     <width>162</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(217, 217, 217);
+font: 25px &quot;Moulpali&quot;;
+color : black; 
+border-radius: 20px;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>240</y>
-     <width>113</width>
-     <height>24</height>
+     <x>313</x>
+     <y>340</y>
+     <width>162</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(217, 217, 217);
+font: 25px &quot;Moulpali&quot;;
+color : black; 
+border-radius: 20px;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_3">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>290</y>
-     <width>113</width>
-     <height>24</height>
+     <x>317</x>
+     <y>418</y>
+     <width>162</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(217, 217, 217);
+font: 25px &quot;Moulpali&quot;;
+color : black; 
+border-radius: 20px;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>200</y>
-     <width>91</width>
-     <height>20</height>
+     <x>143</x>
+     <y>270</y>
+     <width>151</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25px &quot;Moulpali&quot;;
+
+color: white;</string>
    </property>
    <property name="text">
     <string>Song Name</string>
@@ -115,11 +160,16 @@ color: black;</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>240</y>
-     <width>91</width>
+     <x>143</x>
+     <y>352</y>
+     <width>161</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25px &quot;Moulpali&quot;;
+
+color: white;</string>
    </property>
    <property name="text">
     <string>Author Name</string>
@@ -128,11 +178,16 @@ color: black;</string>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>290</y>
-     <width>91</width>
-     <height>20</height>
+     <x>147</x>
+     <y>431</y>
+     <width>118</width>
+     <height>26</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25px &quot;Moulpali&quot;;
+
+color: white;</string>
    </property>
    <property name="text">
     <string>Genre</string>
@@ -141,11 +196,15 @@ color: black;</string>
   <widget class="QPushButton" name="Save">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>320</y>
+     <x>360</x>
+     <y>513</y>
      <width>80</width>
-     <height>24</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(60, 60, 60);
+font: 20px &quot;Moulpali&quot;;</string>
    </property>
    <property name="text">
     <string>Save</string>
@@ -154,16 +213,84 @@ color: black;</string>
   <widget class="QPushButton" name="Back">
    <property name="geometry">
     <rect>
-     <x>570</x>
-     <y>240</y>
+     <x>170</x>
+     <y>513</y>
      <width>80</width>
-     <height>24</height>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(60, 60, 60);
+font: 20px &quot;Moulpali&quot;;</string>
    </property>
    <property name="text">
     <string>back</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1280</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Images/Rectangle 9.png);</string>
+   </property>
+   <property name="text">
+    <string> </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>92</x>
+     <y>88</y>
+     <width>462</width>
+     <height>545</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/Images/Rectangle 10.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>650</y>
+     <width>421</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/Images/Lines.png);
+image: url(:/Images/_fpdl 1.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_7</zorder>
+  <zorder>label_8</zorder>
+  <zorder>Register_Song</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_3</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>lineEdit_2</zorder>
+  <zorder>lineEdit_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_6</zorder>
+  <zorder>Save</zorder>
+  <zorder>Back</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label</zorder>
+  <zorder>label_9</zorder>
  </widget>
  <resources/>
  <connections/>
