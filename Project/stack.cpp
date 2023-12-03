@@ -84,10 +84,12 @@ void Stack::File_History(QString filePath){
     }
 }
 
-Stack Stack::Load_to_file(QString filepath){
+void Stack::Load_to_file(QString filepath){
     Stack S;
     QFile file(filepath);
-
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "File Not Opened"<<"\n";
+    }
     QTextStream stream(&file);
     while (!stream.atEnd()) {
         QString line = stream.readLine();
@@ -104,5 +106,5 @@ Stack Stack::Load_to_file(QString filepath){
             S.Push(song);
         }
     }
-    return S;
+    this->head= S.head;
 }

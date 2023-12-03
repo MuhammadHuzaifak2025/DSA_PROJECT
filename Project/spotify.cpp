@@ -21,11 +21,9 @@ spotify::spotify(QWidget *parent) :
     ui->setupUi(this);
     u = user::get_instance();
 
-//    u->S1->Load_from_File(u->get_userName());
-//    u->add_all_playlist();
-    QString FP;
-    Stack S;
-    u->History = S.Load_to_file("Users/" + u->get_userName() + "/History.txt");
+    // Loads History From the File to the stack class
+    u->History.Load_to_file("Users/" + u->get_userName() + "/History.txt");
+
     QIcon home(":/icons/homeW.png");
     QIcon search(":/icons/searchW.png");
     listStyle ="QListWidget { background-color: rgba(40, 40, 40, 0.7); color: white; selection-background-color: #a0a0a0; border: 1px rgba(40, 40, 40, 0.7); border-radius: 15px; }"

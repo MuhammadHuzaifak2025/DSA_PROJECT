@@ -24,7 +24,7 @@ public:
     Song Peek();
     QList<Song> get_all_history();
     void File_History(QString filePath);
-    Stack Load_to_file(QString filepath);
+    void Load_to_file(QString filepath);
 
 };
 
