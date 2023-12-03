@@ -23,6 +23,7 @@ private slots:
 
     void on_Back_clicked();
 
+
 private:
     Ui::Admin *ui;
 };

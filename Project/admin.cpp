@@ -4,6 +4,9 @@
 #include <QtWidgets>
 #include <QFileInfo>
 #include <song.h>
+#include <QFileDialog>
+#include <QMediaPlayer>
+#include <QMediaMetaData>
 
 Admin::Admin(QWidget *parent) :
     QDialog(parent),
@@ -19,8 +22,20 @@ Admin::~Admin()
 
 void Admin::on_Register_Song_clicked()
 {
-    QString FileName = QFileDialog::getOpenFileName(this,tr("Select Audio File"),"",tr("MP3 Files (*.mp3)"));
-    ui->label_3->setText(FileName);
+    QString fileName = QFileDialog::getOpenFileName(this,tr("Select Audio File"),"",tr("MP3 Files (*.mp3)"));
+    ui->label_3->setText(fileName);
+    QMediaPlayer mediaPlayer;
+    mediaPlayer.setSource(QUrl::fromLocalFile(fileName));
+//    QString Name = A.metaDataKeyToString(mediaPlayer.metaData().AlbumTitle);
+    QString Name = mediaPlayer.metaData().value(QMediaMetaData::Title).toString();
+    QString Artist = mediaPlayer.metaData().value(QMediaMetaData::AlbumArtist).toString();
+    QString genre = mediaPlayer.metaData().value(QMediaMetaData::Genre).toString();
+    ui->lineEdit->setText(Name);
+    ui->lineEdit_2->setText(Artist);
+    ui->lineEdit_3->setText(genre);
+    qDebug()<<Name<< "Genre is: "<<genre<<"ArtistName is"<<Artist<<"\n";
+
+
 }
 
 
@@ -29,7 +44,6 @@ void Admin::on_Save_clicked()
 {
 
     QString FileName = ui->label_3->text();
-
     QString Song_Name = ui->lineEdit->text();
     QString Author_Name = ui->lineEdit_2->text();
     QString Genre= ui->lineEdit_3->text();
