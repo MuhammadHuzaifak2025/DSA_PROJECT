@@ -565,36 +565,7 @@ void spotify::handleTextFromButtonCard(const QString &text){
 
 }
 
-//QFile File("Songs.txt");
-//if (!File.exists()) {
-//    // Create the file if it doesn't exist
-//    if (File.open(QIODevice::ReadWrite)) {
-//        File.close();  // Close the file after creating
-//    } else {
-//        QMessageBox::warning(nullptr, "ERROR", "Cannot create Songs.txt!");
-//        return;
-//    }
-//}
 
-//if (!File.open(QIODevice::ReadWrite | QIODevice::Text)) {
-//    QMessageBox::warning(nullptr, "ERROR", "Cannot open Songs.txt for appending!");
-//    return;
-//}
-
-//QTextStream stream(&File);
-
-//while (!stream.atEnd()) {
-//    QString Line = stream.readLine();
-//    if (Line.section("|", 0, 0) == Name || Line.section("|", 1, 1) == (" "+Path + " ")) {
-//        QMessageBox::warning(NULL, "Login", "Song Already Registered");
-//        File.close();
-//        return;
-//    }
-//}
-//File.seek(File.size());
-//stream << Name + " | " << Path + " | "<< genre + " | "<< artist + " | " << "\n";
-//File.close();
-//QMessageBox::warning(NULL, "Login", "Song Registered");
 
 void spotify::hideList(){
     ui->SearchList->hide();
